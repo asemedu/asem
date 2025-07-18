@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initHamburgerMenu();
     initScrollHeader();
     updateActiveNavLink();
+    initCarousel();
     
     // Event listener pentru scroll
     window.addEventListener('scroll', handleScroll);
@@ -122,4 +123,101 @@ function updateActiveNavLink() {
             link.classList.add('active');
         }
     });
+}
+
+// Variabile pentru carousel
+let currentSlide = 0;
+const cardsPerView = 3;
+
+// Funcție pentru a actualiza vizibilitatea săgeților
+function updateArrowsVisibility() {
+    const grid = document.getElementById('projectsGrid');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    
+    if (!grid || !prevBtn || !nextBtn) return;
+    
+    const cards = grid.querySelectorAll('.project-card');
+    const totalCards = cards.length;
+    const isDesktop = window.innerWidth > 768;
+    const cardsPerViewCurrent = isDesktop ? 3 : 1;
+    const maxSlides = Math.ceil(totalCards / cardsPerViewCurrent) - 1;
+    
+    // Ascunde/afișează săgeata stângă
+    if (currentSlide <= 0) {
+        prevBtn.style.opacity = '0';
+        prevBtn.style.pointerEvents = 'none';
+    } else {
+        prevBtn.style.opacity = '1';
+        prevBtn.style.pointerEvents = 'auto';
+    }
+    
+    // Ascunde/afișează săgeata dreaptă
+    if (currentSlide >= maxSlides) {
+        nextBtn.style.opacity = '0';
+        nextBtn.style.pointerEvents = 'none';
+    } else {
+        nextBtn.style.opacity = '1';
+        nextBtn.style.pointerEvents = 'auto';
+    }
+}
+
+// Funcție pentru a muta carousel-ul
+function moveCarousel(direction) {
+    const grid = document.getElementById('projectsGrid');
+    const cards = grid.querySelectorAll('.project-card');
+    const totalCards = cards.length;
+    const isDesktop = window.innerWidth > 768;
+    const cardsPerViewCurrent = isDesktop ? 3 : 1;
+    const maxSlides = Math.ceil(totalCards / cardsPerViewCurrent) - 1;
+    
+    // Calculează noul slide
+    currentSlide += direction;
+    
+    // Limitează valorile
+    if (currentSlide < 0) {
+        currentSlide = 0;
+    } else if (currentSlide > maxSlides) {
+        currentSlide = maxSlides;
+    }
+    
+    // Calculează deplasarea
+    const cardWidth = cards[0].offsetWidth;
+    const gap = 32; // 2rem gap
+    const slideWidth = isDesktop ? (cardWidth + gap) * cardsPerViewCurrent : cardWidth + gap;
+    const translateX = -currentSlide * slideWidth;
+    
+    // Aplică transformarea
+    grid.style.transform = `translateX(${translateX}px)`;
+    
+    // Actualizează vizibilitatea săgeților
+    updateArrowsVisibility();
+}
+
+// Adaugă inițializarea carousel-ului
+function initCarousel() {
+    const updateCarousel = () => {
+        const grid = document.getElementById('projectsGrid');
+        if (grid) {
+            const isDesktop = window.innerWidth > 768;
+            const cardsPerViewCurrent = isDesktop ? 3 : 1;
+            
+            if (!isDesktop) {
+                // Pe mobile, resetează poziția
+                currentSlide = 0;
+                grid.style.transform = 'translateX(0px)';
+            }
+            
+            // Actualizează vizibilitatea săgeților
+            updateArrowsVisibility();
+        }
+    };
+    
+    // Inițializează săgețile la încărcare
+    setTimeout(() => {
+        updateArrowsVisibility();
+    }, 100);
+    
+    window.addEventListener('resize', updateCarousel);
+    updateCarousel();
 }
