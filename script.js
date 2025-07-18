@@ -45,8 +45,17 @@ function initHamburgerMenu() {
     const hamburger = document.querySelector('.hamburger-menu');
     const navLinks = document.querySelector('.nav-links');
     const header = document.querySelector('header');
+    const closeMenuBtn = document.querySelector('.close-menu');
+    
+    // Funcție pentru a închide meniul
+    function closeMenu() {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+        header.classList.remove('menu-open');
+    }
     
     if (hamburger && navLinks && header) {
+        // Event listener pentru hamburger
         hamburger.addEventListener('click', function() {
             // Toggle clasa active pentru animații
             hamburger.classList.toggle('active');
@@ -59,22 +68,26 @@ function initHamburgerMenu() {
             }
         });
         
+        // Event listener pentru butonul X
+        if (closeMenuBtn) {
+            closeMenuBtn.addEventListener('click', function(event) {
+                event.stopPropagation(); // Previne propagarea evenimentului
+                closeMenu();
+            });
+        }
+        
         // Închide meniul când se face click pe un link
         const links = navLinks.querySelectorAll('a');
         links.forEach(link => {
             link.addEventListener('click', function() {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-                header.classList.remove('menu-open');
+                closeMenu();
             });
         });
         
         // Închide meniul când se face click în afara lui
         document.addEventListener('click', function(event) {
             if (!hamburger.contains(event.target) && !navLinks.contains(event.target)) {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-                header.classList.remove('menu-open');
+                closeMenu();
             }
         });
     }
