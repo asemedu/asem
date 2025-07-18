@@ -120,49 +120,6 @@ nav {
     width: auto;
 }
 
-/* Buton X pentru închiderea meniului */
-.close-menu-item {
-    display: flex;
-    align-items: center;
-}
-
-.close-menu {
-    width: 30px;
-    height: 30px;
-    position: relative;
-    cursor: pointer;
-    padding: 0.8rem 1.2rem;
-    border: 2px solid rgb(199, 217, 184);
-    border-radius: 25px;
-    background: rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.close-menu:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-2px);
-}
-
-.close-menu span {
-    position: absolute;
-    width: 20px;
-    height: 3px;
-    background-color: #2c2c2c;
-    border-radius: 3px;
-    transition: 0.3s;
-}
-
-.close-menu span:nth-child(1) {
-    transform: rotate(45deg);
-}
-
-.close-menu span:nth-child(2) {
-    transform: rotate(-45deg);
-}
-
 /* Main content */
 main {
     padding-top: 0;

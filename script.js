@@ -51,7 +51,6 @@ function initHamburgerMenu() {
     const hamburger = document.querySelector('.hamburger-menu');
     const navLinks = document.querySelector('.nav-links');
     const header = document.querySelector('header');
-    const closeMenuBtn = document.querySelector('.close-menu');
     
     // Funcție pentru a închide meniul
     function closeMenu() {
@@ -81,14 +80,6 @@ function initHamburgerMenu() {
             }
         });
         
-        // Event listener pentru butonul X
-        if (closeMenuBtn) {
-            closeMenuBtn.addEventListener('click', function(event) {
-                event.stopPropagation(); // Previne propagarea evenimentului
-                closeMenu();
-            });
-        }
-        
         // Închide meniul când se face click pe un link de navigare
         const navLinksItems = navLinks.querySelectorAll('a');
         navLinksItems.forEach(link => {
@@ -101,9 +92,8 @@ function initHamburgerMenu() {
         document.addEventListener('click', function(event) {
             const isClickInsideNav = navLinks.contains(event.target);
             const isClickOnHamburger = hamburger.contains(event.target);
-            const isClickOnCloseBtn = closeMenuBtn && closeMenuBtn.contains(event.target);
             
-            if (!isClickInsideNav && !isClickOnHamburger && !isClickOnCloseBtn) {
+            if (!isClickInsideNav && !isClickOnHamburger) {
                 closeMenu();
             }
         });
