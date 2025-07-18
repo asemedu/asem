@@ -221,3 +221,132 @@ function initCarousel() {
     window.addEventListener('resize', updateCarousel);
     updateCarousel();
 }
+
+// Funcții pentru galeria de imagini din articole (similar cu carouselul de proiecte)
+let currentImageSlide = 0;
+
+function moveImageCarousel(direction) {
+    const grid = document.getElementById('galleryGrid');
+    const cards = grid ? grid.querySelectorAll('.gallery-image-card') : [];
+    
+    if (cards.length === 0) return;
+    
+    const isDesktop = window.innerWidth > 1024;
+    const isTablet = window.innerWidth > 768;
+    
+    let cardsPerView;
+    if (isDesktop) {
+        cardsPerView = 3;
+    } else if (isTablet) {
+        cardsPerView = 2;
+    } else {
+        cardsPerView = 1;
+    }
+    
+    const maxSlides = Math.max(0, cards.length - cardsPerView);
+    
+    // Calculează noul slide
+    const newSlide = currentImageSlide + direction;
+    
+    // Verifică limitele
+    if (newSlide < 0 || newSlide > maxSlides) {
+        return;
+    }
+    
+    currentImageSlide = newSlide;
+    
+    // Calculează lățimea unui card plus gap
+    const cardWidth = cards[0].offsetWidth;
+    const gap = 32; // 2rem în pixeli
+    const translateX = -currentImageSlide * (cardWidth + gap);
+    
+    grid.style.transform = `translateX(${translateX}px)`;
+    
+    // Actualizează săgețile
+    updateImageCarouselArrows();
+}
+
+function updateImageCarouselArrows() {
+    const prevBtn = document.querySelector('.gallery-carousel .prev-btn');
+    const nextBtn = document.querySelector('.gallery-carousel .next-btn');
+    const grid = document.getElementById('galleryGrid');
+    const cards = grid ? grid.querySelectorAll('.gallery-image-card') : [];
+    
+    if (!prevBtn || !nextBtn || cards.length === 0) return;
+    
+    const isDesktop = window.innerWidth > 1024;
+    const isTablet = window.innerWidth > 768;
+    
+    let cardsPerView;
+    if (isDesktop) {
+        cardsPerView = 3;
+    } else if (isTablet) {
+        cardsPerView = 2;
+    } else {
+        cardsPerView = 1;
+    }
+    
+    const maxSlides = Math.max(0, cards.length - cardsPerView);
+    
+    // Actualizează săgeata pentru înapoi
+    if (currentImageSlide === 0) {
+        prevBtn.classList.add('hidden');
+    } else {
+        prevBtn.classList.remove('hidden');
+    }
+    
+    // Actualizează săgeata pentru înainte
+    if (currentImageSlide >= maxSlides) {
+        nextBtn.classList.add('hidden');
+    } else {
+        nextBtn.classList.remove('hidden');
+    }
+}
+
+function initImageCarousel() {
+    const grid = document.getElementById('galleryGrid');
+    if (!grid) return;
+    
+    const updateCarousel = () => {
+        const cards = grid.querySelectorAll('.gallery-image-card');
+        if (cards.length === 0) return;
+        
+        const isDesktop = window.innerWidth > 1024;
+        const isTablet = window.innerWidth > 768;
+        
+        let cardsPerView;
+        if (isDesktop) {
+            cardsPerView = 3;
+        } else if (isTablet) {
+            cardsPerView = 2;
+        } else {
+            cardsPerView = 1;
+        }
+        
+        if (!isDesktop && currentImageSlide > 0) {
+            // Pe mobile/tablet, resetează poziția
+            currentImageSlide = 0;
+            grid.style.transform = 'translateX(0px)';
+        }
+        
+        // Actualizează vizibilitatea săgeților
+        updateImageCarouselArrows();
+    };
+    
+    // Inițializează săgețile la încărcare
+    setTimeout(() => {
+        updateImageCarouselArrows();
+    }, 100);
+    
+    window.addEventListener('resize', updateCarousel);
+    updateCarousel();
+}
+
+// Inițializează galeria când documentul se încarcă
+document.addEventListener('DOMContentLoaded', function() {
+    // Inițializează galeria dacă există
+    const galleryGrid = document.getElementById('galleryGrid');
+    if (galleryGrid) {
+        initImageCarousel();
+    }
+});
