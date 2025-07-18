@@ -136,24 +136,42 @@ main {
 }
 
 .hero {
-    height: 100vh;
-    background: linear-gradient(135deg, rgba(188, 214, 172, 0.8), rgba(147, 197, 114, 0.8)), url('img_start.png');
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    padding: 0 2rem;
+    position: relative;
+    display: inline-block;
+    margin: 0 auto;
+    max-width: 100vw;
+}
+
+.hero-bg-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    width: auto;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(188, 214, 172, 0.8), rgba(147, 197, 114, 0.8));
+    z-index: 1;
 }
 
 .hero-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 1200px;
-    width: 100%;
+    padding: 4rem;
     gap: 4rem;
+    z-index: 2;
+    color: white;
 }
 
 .hero-logo {
@@ -165,7 +183,7 @@ main {
 
 .start-logo {
     max-width: 100%;
-    max-height: 60vh;
+    max-height: 40vh;
     width: auto;
     height: auto;
 }
@@ -186,6 +204,54 @@ main {
     font-size: 1.3rem;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
     line-height: 1.6;
+}
+
+/* Buton scroll down */
+.scroll-down-button {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 3;
+}
+
+.scroll-down-button:hover {
+    transform: translateX(-50%) translateY(-5px);
+}
+
+.arrow-down {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.arrow-down:hover {
+    transform: scale(1.2);
+}
+
+.arrow-down span {
+    position: absolute;
+    width: 20px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.arrow-down span:first-child {
+    transform: rotate(45deg);
+    left: 3px;
+    top: 12px;
+}
+
+.arrow-down span:last-child {
+    transform: rotate(-45deg);
+    right: 3px;
+    top: 12px;
 }
 
 /* Responsive pentru hero section */
