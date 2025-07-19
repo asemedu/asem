@@ -572,9 +572,80 @@ main {
 footer {
     background: #2c2c2c;
     color: white;
-    text-align: center;
     padding: 2rem 0;
     margin-top: 4rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.footer-logo {
+    flex-shrink: 0;
+}
+
+.footer-logo-img {
+    height: 60px;
+    width: auto;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+.footer-logo-img:hover {
+    opacity: 1;
+}
+
+.footer-text {
+    flex: 1;
+    text-align: center;
+    min-width: 200px;
+}
+
+.footer-text p {
+    margin: 0;
+    font-size: 0.85rem;
+    opacity: 0.8;
+    line-height: 1.4;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.social-link:hover {
+    background: rgb(147, 197, 114);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(147, 197, 114, 0.3);
+}
+
+.social-link svg {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover svg {
+    transform: scale(1.1);
 }
 
 /* Responsive design */
@@ -624,6 +695,26 @@ footer {
     
     .carousel-btn span {
         font-size: 20px;
+    }
+    
+    /* Footer responsive */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    
+    .footer-logo-img {
+        height: 50px;
+    }
+    
+    .footer-text {
+        order: 2;
+    }
+    
+    .social-links {
+        justify-content: center;
+        order: 3;
     }
     
     .prev-btn {

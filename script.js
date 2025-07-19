@@ -245,15 +245,15 @@ function moveImageCarousel(direction) {
     
     const maxSlides = Math.max(0, cards.length - cardsPerView);
     
-    // Calculează noul slide
-    const newSlide = currentImageSlide + direction;
+    // Calculează noul slide cu loop infinit
+    currentImageSlide += direction;
     
-    // Verifică limitele
-    if (newSlide < 0 || newSlide > maxSlides) {
-        return;
+    // Implementează loop infinit
+    if (currentImageSlide < 0) {
+        currentImageSlide = maxSlides;
+    } else if (currentImageSlide > maxSlides) {
+        currentImageSlide = 0;
     }
-    
-    currentImageSlide = newSlide;
     
     // Calculează lățimea unui card plus gap
     const cardWidth = cards[0].offsetWidth;
@@ -262,7 +262,7 @@ function moveImageCarousel(direction) {
     
     grid.style.transform = `translateX(${translateX}px)`;
     
-    // Actualizează săgețile
+    // Actualizează săgețile (acum vor fi mereu vizibile)
     updateImageCarouselArrows();
 }
 
@@ -286,20 +286,19 @@ function updateImageCarouselArrows() {
         cardsPerView = 1;
     }
     
-    const maxSlides = Math.max(0, cards.length - cardsPerView);
-    
-    // Actualizează săgeata pentru înapoi
-    if (currentImageSlide === 0) {
-        prevBtn.classList.add('hidden');
+    // În loop infinit, afișează săgețile doar dacă avem mai multe imagini decât cele vizibile
+    if (cards.length > cardsPerView) {
+        // Ambele săgeți sunt vizibile și funcționale în loop infinit
+        prevBtn.style.opacity = '1';
+        prevBtn.style.pointerEvents = 'auto';
+        nextBtn.style.opacity = '1';
+        nextBtn.style.pointerEvents = 'auto';
     } else {
-        prevBtn.classList.remove('hidden');
-    }
-    
-    // Actualizează săgeata pentru înainte
-    if (currentImageSlide >= maxSlides) {
-        nextBtn.classList.add('hidden');
-    } else {
-        nextBtn.classList.remove('hidden');
+        // Ascunde săgețile dacă nu sunt necesare
+        prevBtn.style.opacity = '0';
+        prevBtn.style.pointerEvents = 'none';
+        nextBtn.style.opacity = '0';
+        nextBtn.style.pointerEvents = 'none';
     }
 }
 
@@ -323,11 +322,11 @@ function initImageCarousel() {
             cardsPerView = 1;
         }
         
-        if (!isDesktop && currentImageSlide > 0) {
-            // Pe mobile/tablet, resetează poziția
-            currentImageSlide = 0;
-            grid.style.transform = 'translateX(0px)';
-        }
+        // Nu mai resetăm poziția - păstrăm loop-ul infinit pe toate dimensiunile
+        // if (!isDesktop && currentImageSlide > 0) {
+        //     currentImageSlide = 0;
+        //     grid.style.transform = 'translateX(0px)';
+        // }
         
         // Actualizează vizibilitatea săgeților
         updateImageCarouselArrows();
