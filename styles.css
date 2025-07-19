@@ -69,6 +69,52 @@ nav {
     transform: rotate(45deg) translate(-5px, -6px);
 }
 
+/* Iconică Acasă - doar pe paginile de articole */
+.home-icon {
+    position: absolute;
+    top: 50%;
+    left: 2rem;
+    transform: translateY(-50%);
+    z-index: 1001;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+/* Afișează iconița doar pe paginile de articole */
+header.article-header .home-icon {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Ascunde iconița când meniul este deschis */
+header.menu-open .home-icon {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.home-icon a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.home-icon a:hover {
+    transform: scale(1.1);
+}
+
+.home-icon img {
+    width: 30px;
+    height: 30px;
+    transition: all 0.3s ease;
+}
+
 .nav-links {
     list-style: none;
     display: flex;
