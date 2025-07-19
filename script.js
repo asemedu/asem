@@ -23,7 +23,7 @@ function scrollToSection(sectionId) {
         });
     }
 }
-
+ 
 // Funcție pentru gestionarea scroll-ului și afișarea header-ului
 function handleScroll() {
     const header = document.querySelector('header');
