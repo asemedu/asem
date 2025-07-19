@@ -348,4 +348,91 @@ document.addEventListener('DOMContentLoaded', function() {
     if (galleryGrid) {
         initImageCarousel();
     }
+    
+    // Inițializează funcționalitatea formularelor
+    initContactForms();
 });
+
+// Funcționalitate pentru formularele de contact
+function initContactForms() {
+    // Formular de contact
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Colectează datele din formular
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+            
+            // Simulează trimiterea mesajului (aici poți integra cu un serviciu real)
+            showMessage('Mesajul tău a fost trimis cu succes! Îți vom răspunde în curând.', 'success');
+            
+            // Resetează formularul
+            contactForm.reset();
+        });
+    }
+    
+    // Formular newsletter
+    const newsletterForm = document.getElementById('newsletterForm');
+    if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('newsletter-email').value;
+            
+            // Simulează abonarea la newsletter (aici poți integra cu un serviciu real)
+            showMessage('Te-ai abonat cu succes la newsletter-ul nostru!', 'success');
+            
+            // Resetează formularul
+            newsletterForm.reset();
+        });
+    }
+}
+
+// Funcție pentru afișarea mesajelor de feedback
+function showMessage(message, type) {
+    // Creează elementul de mesaj
+    const messageEl = document.createElement('div');
+    messageEl.className = `form-message ${type}`;
+    messageEl.textContent = message;
+    
+    // Stilizează mesajul
+    messageEl.style.cssText = `
+        position: fixed;
+        top: 2rem;
+        right: 2rem;
+        background: ${type === 'success' ? 'rgb(147, 197, 114)' : '#e74c3c'};
+        color: white;
+        padding: 1rem 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        z-index: 1000;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        max-width: 300px;
+        font-weight: 500;
+    `;
+    
+    // Adaugă mesajul în DOM
+    document.body.appendChild(messageEl);
+    
+    // Animație de intrare
+    setTimeout(() => {
+        messageEl.style.transform = 'translateX(0)';
+    }, 10);
+    
+    // Înlătură mesajul după 5 secunde
+    setTimeout(() => {
+        messageEl.style.transform = 'translateX(100%)';
+        setTimeout(() => {
+            if (messageEl.parentNode) {
+                messageEl.parentNode.removeChild(messageEl);
+            }
+        }, 300);
+    }, 5000);
+}
