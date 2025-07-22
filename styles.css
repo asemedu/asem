@@ -660,20 +660,20 @@ main {
     gap: 1rem;
     width: 100%;
     padding: 1.5rem 2rem;
-    background: linear-gradient(135deg, rgb(147, 197, 114), rgb(180, 220, 160));
+    background: linear-gradient(135deg, #4a90e2, #357abd);
     color: white;
     text-decoration: none;
     border-radius: 10px;
     font-weight: 600;
     font-size: 1.1rem;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(147, 197, 114, 0.3);
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
 }
 
 .sponsorship-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(147, 197, 114, 0.4);
-    background: linear-gradient(135deg, rgb(130, 180, 100), rgb(147, 197, 114));
+    box-shadow: 0 8px 25px rgba(74, 144, 226, 0.4);
+    background: linear-gradient(135deg, #357abd, #2c5f8a);
 }
 
 /* Formulare */
@@ -765,11 +765,11 @@ main {
 }
 
 .newsletter-btn {
-    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: rgb(147, 197, 114);
 }
 
 .newsletter-btn:hover {
-    background: linear-gradient(135deg, #5a6fd8, #6a4190);
+    background: rgb(130, 180, 100);
 }
 
 /* Footer */
