@@ -7,10 +7,34 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollHeader();
     updateActiveNavLink();
     initCarousel();
-    
+
     // Event listener pentru scroll
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('scroll', updateActiveNavLink);
+
+    // --- AUTO HAMBURGER MENU ON HOMEPAGE ---
+    if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname === '/asem_site/' ) {
+        const header = document.querySelector('header');
+        const hero = document.querySelector('.hero, #acasa');
+        let menuWasOpen = false;
+        window.addEventListener('scroll', function() {
+            if (!header || !hero) return;
+            const heroBottom = hero.getBoundingClientRect().bottom;
+            // Dacă am trecut de poza principală
+            if (heroBottom < 0) {
+                if (!header.classList.contains('menu-open')) {
+                    header.classList.add('menu-open');
+                    header.classList.add('visible');
+                    menuWasOpen = true;
+                }
+            } else {
+                if (header.classList.contains('menu-open') && menuWasOpen) {
+                    header.classList.remove('menu-open');
+                    menuWasOpen = false;
+                }
+            }
+        });
+    }
 });
 
 // Funcție pentru scroll smooth către secțiuni
@@ -96,6 +120,28 @@ function initHamburgerMenu() {
             
             if (!isClickInsideNav && !isClickOnHamburger) {
                 closeMenu();
+            }
+        });
+    }
+    // Auto open/close hamburger menu on homepage scroll
+    if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/' || window.location.pathname === '/asem_site/' ) {
+        const hero = document.querySelector('.hero, #acasa');
+        let menuWasOpen = false;
+        window.addEventListener('scroll', function() {
+            if (!header || !hero) return;
+            const heroBottom = hero.getBoundingClientRect().bottom;
+            // Dacă am trecut de poza principală
+            if (heroBottom < 0) {
+                if (!header.classList.contains('menu-open')) {
+                    header.classList.add('menu-open');
+                    header.classList.add('visible');
+                    menuWasOpen = true;
+                }
+            } else {
+                if (header.classList.contains('menu-open') && menuWasOpen) {
+                    header.classList.remove('menu-open');
+                    menuWasOpen = false;
+                }
             }
         });
     }
