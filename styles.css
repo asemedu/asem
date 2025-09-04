@@ -414,12 +414,14 @@ main {
     width: 100%;
     height: 250px;
     overflow: hidden;
+    padding-top: 12px; /* mută imaginea puțin în jos pentru a se vedea marginea superioară */
 }
 
 .project-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: top center; /* afișează marginea superioară a imaginii */
     transition: transform 0.3s ease;
 }
 
@@ -994,4 +996,43 @@ header.menu-open {
     background: linear-gradient(135deg, rgba(147, 197, 114, 0.48), rgba(90, 158, 44, 0.38));
     backdrop-filter: blur(14px);
     box-shadow: 0 8px 32px rgba(90,158,44,0.08);
+}
+
+/* Board members - ensure actions align horizontally */
+.member-card {
+    /* Keep visual style consistent while enabling vertical spacing */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 320px; /* ensures action row sits at the same level across cards */
+}
+
+.member-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.member-actions .social-links {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+}
+
+.cv-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.8rem 1.2rem;
+    border-radius: 30px;
+    background: linear-gradient(135deg, rgb(147, 197, 114), rgb(90, 158, 44));
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(90,158,44,0.12);
+}
+
+.cv-btn:hover {
+    transform: translateY(-2px);
 }
