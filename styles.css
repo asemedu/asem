@@ -1036,3 +1036,26 @@ header.menu-open {
 .cv-btn:hover {
     transform: translateY(-2px);
 }
+
+/* Member images: uniform sizing and cropping */
+.member-image {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #f3f3f3;
+}
+
+.member-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.45s ease;
+    transform: scale(1);
+}
+
+/* Slight zoom for vice-president (2nd card) */
+.members-grid .member-card:nth-child(2) .member-image img {
+    transform: scale(1.12);
+}
