@@ -176,6 +176,21 @@
     width: 32%;
 }
 
+/* Utility: center actions container and relax button width when used */
+.article-actions.center {
+    justify-content: center;
+    /* make the actions container span the full page width so buttons appear centered on the page */
+    max-width: none;
+    width: 100%;
+    padding: 0 1rem; /* keep a little horizontal breathing room */
+}
+.article-actions.center .btn-primary,
+.article-actions.center .btn-secondary {
+    width: auto;
+    max-width: 360px;
+    margin: 0 auto; /* ensure the button is centered inside the full-width container */
+}
+
 /* Center text inside the footer buttons and vertically align their content */
 .article-actions .btn-primary,
 .article-actions .btn-secondary {
@@ -691,6 +706,24 @@
 
 .project-item:hover .project-image img {
     transform: scale(1.05);
+}
+
+/* Fix: prevent images from being visually overridden on hover (white flash)
+   Force no filter/opacity and hide any accidental pseudo-element overlays
+   Scoped to project listing / biblioteca to avoid affecting other pages. */
+.projects-list .project-image img,
+#ghid-prim-ajutor .project-image img {
+    filter: none !important;
+    opacity: 1 !important;
+    background: transparent !important;
+}
+
+.projects-list .project-image::after,
+.projects-list .project-image::before,
+#ghid-prim-ajutor .project-image::after,
+#ghid-prim-ajutor .project-image::before {
+    display: none !important;
+    content: none !important;
 }
 
 .project-overlay {
