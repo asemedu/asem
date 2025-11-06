@@ -180,7 +180,8 @@ function updateArrowsVisibility() {
     const totalCards = cards.length;
     const isDesktop = window.innerWidth > 768;
     const cardsPerViewCurrent = isDesktop ? 3 : 1;
-    const maxSlides = Math.ceil(totalCards / cardsPerViewCurrent) - 1;
+    // Calculate maximum slide index based on single-card stepping
+    const maxSlides = Math.max(0, totalCards - cardsPerViewCurrent);
     
     // Ascunde/afișează săgeata stângă
     if (currentSlide <= 0) {
@@ -208,23 +209,32 @@ function moveCarousel(direction) {
     const totalCards = cards.length;
     const isDesktop = window.innerWidth > 768;
     const cardsPerViewCurrent = isDesktop ? 3 : 1;
-    const maxSlides = Math.ceil(totalCards / cardsPerViewCurrent) - 1;
-    
-    // Calculează noul slide
+    // When stepping per-card, maxSlides equals totalCards - visibleCards
+    const maxSlides = Math.max(0, totalCards - cardsPerViewCurrent);
+    // Advance by one card per click
     currentSlide += direction;
-    
-    // Limitează valorile
+
+    // Clamp values
     if (currentSlide < 0) {
         currentSlide = 0;
     } else if (currentSlide > maxSlides) {
         currentSlide = maxSlides;
     }
-    
-    // Calculează deplasarea
-    const cardWidth = cards[0].offsetWidth;
-    const gap = 32; // 2rem gap
-    const slideWidth = isDesktop ? (cardWidth + gap) * cardsPerViewCurrent : cardWidth + gap;
-    const translateX = -currentSlide * slideWidth;
+
+    // Compute card width based on visible carousel viewport to ensure stepping by one visible card
+    const carousel = document.querySelector('.projects-carousel');
+    const gap = 32; // px (2rem)
+    let cardWidth = cards[0].offsetWidth;
+    if (carousel) {
+        const style = getComputedStyle(carousel);
+        const paddingLeft = parseFloat(style.paddingLeft) || 0;
+        const paddingRight = parseFloat(style.paddingRight) || 0;
+        const visibleWidth = carousel.clientWidth - (paddingLeft + paddingRight);
+        // Calculate card width as available visible width divided by visible cards minus gaps
+        cardWidth = (visibleWidth - gap * (cardsPerViewCurrent - 1)) / cardsPerViewCurrent;
+    }
+
+    const translateX = -currentSlide * (cardWidth + gap);
     
     // Aplică transformarea
     grid.style.transform = `translateX(${translateX}px)`;
@@ -240,11 +250,32 @@ function initCarousel() {
         if (grid) {
             const isDesktop = window.innerWidth > 768;
             const cardsPerViewCurrent = isDesktop ? 3 : 1;
-            
+            // Ensure currentSlide is within new max after resize
+            const cards = grid.querySelectorAll('.project-card');
+            const totalCards = cards.length;
+            const maxSlides = Math.max(0, totalCards - cardsPerViewCurrent);
+            if (currentSlide > maxSlides) currentSlide = maxSlides;
+
             if (!isDesktop) {
-                // Pe mobile, resetează poziția
-                currentSlide = 0;
-                grid.style.transform = 'translateX(0px)';
+                // On mobile keep behavior of showing first card set
+                if (currentSlide < 0) currentSlide = 0;
+            }
+
+            // Apply transform for currentSlide
+            if (cards.length > 0) {
+                // Recompute card width based on visible viewport (accounts for padding and gap)
+                const carousel = document.querySelector('.projects-carousel');
+                const gap = 32;
+                let cardWidth = cards[0].offsetWidth;
+                if (carousel) {
+                    const style = getComputedStyle(carousel);
+                    const paddingLeft = parseFloat(style.paddingLeft) || 0;
+                    const paddingRight = parseFloat(style.paddingRight) || 0;
+                    const visibleWidth = carousel.clientWidth - (paddingLeft + paddingRight);
+                    cardWidth = (visibleWidth - gap * (cardsPerViewCurrent - 1)) / cardsPerViewCurrent;
+                }
+                const translateX = -currentSlide * (cardWidth + gap);
+                grid.style.transform = `translateX(${translateX}px)`;
             }
             
             // Actualizează vizibilitatea săgeților
