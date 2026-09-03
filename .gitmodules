@@ -1,3 +1,4 @@
 [submodule "goMed"]
 	path = goMed
 	url = https://github.com/asemedu/goMed.git
+	branch = main
