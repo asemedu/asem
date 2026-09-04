@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages with React Submodule
 on:
   push:
     branches:
-      - main  # sau master
+      - main
 
 permissions:
   contents: read
@@ -20,39 +20,46 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository and submodules
         uses: actions/checkout@v4
         with:
           submodules: recursive
 
-      - name: Update submodules to latest remote commit
+      - name: Update submodule to latest main
         run: git submodule update --remote --recursive
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 20
+          cache: 'npm'
+          cache-dependency-path: goMed/package-lock.json
 
-      - name: Build React App
-        run: |
-          cd goMed
-          npm install --legacy-peer-deps
-          npm run build
-          cd ..
+      - name: Install React app dependencies
+        working-directory: goMed
+        run: npm ci --legacy-peer-deps
 
-      - name: Stage React build to static path
+      - name: Build React app
+        working-directory: goMed
+        run: npm run build
+
+      - name: Assemble site for upload
         run: |
-          mkdir -p aplicatie
-          cp -r goMed/dist/* aplicatie/
+          mkdir -p _site/aplicatie
+          # Copy static site files (HTML, CSS, JS, images) - exclude dot dirs and goMed submodule
+          rsync -a --exclude='.git' --exclude='goMed' --exclude='_site' --exclude='node_modules' . _site/
+          # Copy React build output into the /aplicatie subfolder
+          cp -r goMed/dist/* _site/aplicatie/
 
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: '.'
+          path: '_site'
 
       - name: Deploy to GitHub Pages
         id: deployment
