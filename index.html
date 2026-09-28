@@ -36,20 +36,32 @@
             </div>
         </section>
 
-        <section id="gomed" class="gomed-section">
-            <div class="container gomed-layout">
-                <div class="gomed-top">
-                    <div class="gomed-content">
-                        <img src="goMed.svg" alt="goMed" class="gomed-logo-img">
-                        <h2 class="gomed-title">Explorează și salvează</h2>
-                        <p class="gomed-subtitle">realitate augmentată pentru învățarea<br>tehnicilor de bază în acordarea primului ajutor</p>
+        <section id="gomed" style="padding: 5rem 2rem; background-color: #f1f8e9; display: flex; justify-content: center; align-items: center;">
+            <div class="container" style="max-width: 1100px; width: 100%; display: flex; flex-direction: column; gap: 2rem;">
+                <!-- Top Row: GoMed Card + Button -->
+                <div style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 3rem; flex-wrap: wrap;">
+                    <!-- Left side: GoMed SVG (already has a card background) -->
+                    <div style="flex: 1; display: flex; flex-direction: column; align-items: center; min-width: 300px;">
+                        <img src="goMed.svg" alt="goMed" style="max-width: 100%; height: auto; border-radius: 24px; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);">
+                        <p style="text-align: center; color: #4a6856; font-size: 1.1rem; line-height: 1.5; margin-top: 1rem; max-width: 400px; font-weight: 500;">
+                            realitate augmentată pentru învățarea<br>tehnicilor de bază în acordarea primului ajutor
+                        </p>
                     </div>
-                    <div class="gomed-action">
-                        <a href="https://gomed-staging.edu-med.ro" target="_blank" rel="noopener noreferrer" class="gomed-btn">Accesează goMed</a>
+
+                    <!-- Right side: Huge Button -->
+                    <div style="flex: 1; display: flex; justify-content: center; min-width: 300px;">
+                        <a href="https://gomed-staging.edu-med.ro" target="_blank" rel="noopener noreferrer" 
+                           style="display: flex; justify-content: center; align-items: center; text-align: center; background-color: #ffffff; color: #e53935; font-size: 1.6rem; font-weight: 800; text-decoration: none; text-transform: uppercase; letter-spacing: 1px; border-radius: 30px; padding: 4rem 3rem; width: 100%; max-width: 400px; box-shadow: 0 15px 35px rgba(0,0,0,0.08); transition: transform 0.3s ease, box-shadow 0.3s ease; border: 3px solid transparent;"
+                           onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 25px 45px rgba(0,0,0,0.12)';"
+                           onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 15px 35px rgba(0,0,0,0.08)';">
+                            Accesează<br>goMed
+                        </a>
                     </div>
                 </div>
-                <div class="gomed-bottom">
-                    <img src="sponsori.svg" alt="Sponsori" class="gomed-sponsors-img">
+
+                <!-- Bottom Row: Sponsors -->
+                <div style="background-color: #ffffff; border-radius: 30px; padding: 3rem; display: flex; justify-content: center; align-items: center; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05); margin-top: 2rem;">
+                    <img src="sponsori.svg" alt="Sponsori" style="max-width: 100%; height: auto;">
                 </div>
             </div>
         </section>
