@@ -1061,3 +1061,85 @@ header.menu-open {
 .members-grid .member-card:nth-child(2) .member-image img {
     transform: scale(1.12);
 }
+
+/* --- goMed Section --- */
+.gomed-section {
+    padding: 6rem 2rem;
+    background: linear-gradient(135deg, #e4efe2 0%, #c8e1c6 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gomed-card {
+    background-color: #f7fbf6;
+    border-radius: 32px;
+    padding: 4rem 3rem;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gomed-logo-img {
+    max-width: 380px;
+    height: auto;
+    margin-bottom: 2.5rem;
+}
+
+.gomed-title {
+    color: #1a5035;
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.gomed-subtitle {
+    color: #2d6b49;
+    font-size: 1.3rem;
+    font-weight: 400;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+}
+
+.gomed-btn {
+    display: inline-block;
+    padding: 1.2rem 3rem;
+    font-size: 1.25rem;
+    color: #ffffff;
+    background-color: #1a5035;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(26, 80, 53, 0.25);
+}
+
+.gomed-btn:hover {
+    background-color: #236c47;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(26, 80, 53, 0.35);
+    color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .gomed-section {
+        padding: 4rem 1rem;
+    }
+    .gomed-card {
+        padding: 3rem 1.5rem;
+        border-radius: 24px;
+    }
+    .gomed-logo-img {
+        max-width: 260px;
+    }
+    .gomed-title {
+        font-size: 2rem;
+    }
+    .gomed-subtitle {
+        font-size: 1.1rem;
+    }
+}
