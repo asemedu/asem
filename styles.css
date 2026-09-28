@@ -320,19 +320,19 @@ main {
         text-align: center;
         gap: 2rem;
     }
-    
+
     .hero-text {
         text-align: center;
     }
-    
+
     .hero-text h1 {
         font-size: 2rem;
     }
-    
+
     .hero-text p {
         font-size: 1.1rem;
     }
-    
+
     .start-logo {
         max-height: 40vh;
     }
@@ -861,68 +861,68 @@ footer {
     .hamburger-menu {
         right: 1rem;
     }
-    
+
     nav {
         padding: 0 1rem;
     }
-    
+
     .nav-links {
         flex-direction: column;
         gap: 1rem;
         padding: 2rem 0;
     }
-    
+
     .hero-content h2 {
         font-size: 2rem;
     }
-    
+
     .hero-content p {
         font-size: 1rem;
     }
-    
+
     .container {
         padding: 0 1rem;
     }
-    
+
     .section h2 {
         font-size: 2rem;
     }
-    
+
     .projects-carousel {
         padding: 0 50px; /* Spațiu pentru săgeți pe mobile */
     }
-    
+
     .project-card {
         flex: 0 0 100%;
     }
-    
+
     .carousel-btn {
         width: 40px;
         height: 40px;
     }
-    
+
     .carousel-btn span {
         font-size: 20px;
     }
-    
+
     /* Contact responsive */
     .contact-content {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
-    
+
     .contact-left-column,
     .contact-right-column {
         height: auto;
     }
-    
+
     .contact-social-links {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
         gap: 0.5rem;
     }
-    
+
     .contact-social-link {
         flex: 1;
         min-width: 120px;
@@ -930,61 +930,61 @@ footer {
         padding: 1rem 0.5rem;
         font-size: 0.9rem;
     }
-    
+
     .contact-social-link span {
         display: none;
     }
-    
+
     .sponsorship-btn {
         padding: 1.2rem 1.5rem;
         font-size: 1rem;
     }
-    
+
     .contact-form-container,
     .newsletter-container {
         padding: 1.5rem;
     }
-    
+
     .contact-form-container h3,
     .newsletter-container h3 {
         font-size: 1.2rem;
     }
-    
+
     /* Footer responsive */
     .footer-content {
         flex-direction: column;
         text-align: center;
         gap: 1.5rem;
     }
-    
+
     .footer-logo-img {
         height: 50px;
     }
-    
+
     .footer-text {
         order: 2;
     }
-    
+
     .social-links {
         justify-content: center;
         order: 3;
     }
-    
+
     .prev-btn {
         left: 5px;
     }
-    
+
     .next-btn {
         right: 5px;
     }
-    
+
     .project-content {
         padding: 2rem;
         height: 220px; /* Înălțime mărită și pe mobile */
         text-align: center;
         align-items: center;
     }
-    
+
     .project-content h3 {
         font-size: 1.6rem;
         height: 120px; /* Spațiu foarte generos pentru titluri pe mobile */
@@ -1062,84 +1062,110 @@ header.menu-open {
     transform: scale(1.12);
 }
 
-/* --- goMed Section --- */
+/* --- goMed Section Redesign (Grid Layout) --- */
 .gomed-section {
     padding: 6rem 2rem;
-    background: linear-gradient(135deg, #e4efe2 0%, #c8e1c6 100%);
+    background-color: #f1f6ed; /* Soft light green */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.gomed-card {
-    background-color: #f7fbf6;
-    border-radius: 32px;
-    padding: 4rem 3rem;
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+.gomed-layout {
+    max-width: 1100px;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 2rem;
+}
+
+.gomed-top {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 2rem;
+}
+
+.gomed-content {
+    flex: 1.8;
+    background-color: #ffffff;
+    border-radius: 24px;
+    padding: 3.5rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .gomed-logo-img {
-    max-width: 380px;
-    height: auto;
-    margin-bottom: 2.5rem;
+    max-width: 320px;
+    margin-bottom: 2rem;
 }
 
 .gomed-title {
     color: #1a5035;
-    font-size: 2.8rem;
+    font-size: 2.4rem;
     font-weight: 800;
     margin-bottom: 1rem;
 }
 
 .gomed-subtitle {
-    color: #2d6b49;
-    font-size: 1.3rem;
-    font-weight: 400;
+    color: #4a6856;
+    font-size: 1.2rem;
     line-height: 1.6;
-    margin-bottom: 3rem;
+}
+
+.gomed-action {
+    flex: 1;
+    display: flex;
 }
 
 .gomed-btn {
-    display: inline-block;
-    padding: 1.2rem 3rem;
-    font-size: 1.25rem;
-    color: #ffffff;
-    background-color: #1a5035;
-    border-radius: 50px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    color: #e03a3a; /* Red color matching the sketch text */
+    font-size: 1.5rem;
+    font-weight: 800;
     text-decoration: none;
-    font-weight: bold;
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
     transition: all 0.3s ease;
-    box-shadow: 0 8px 20px rgba(26, 80, 53, 0.25);
+    padding: 3rem;
+    text-align: center;
 }
 
 .gomed-btn:hover {
-    background-color: #236c47;
-    transform: translateY(-3px);
-    box-shadow: 0 12px 25px rgba(26, 80, 53, 0.35);
-    color: #ffffff;
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    color: #c02929;
+}
+
+.gomed-bottom {
+    background-color: #ffffff;
+    border-radius: 24px;
+    padding: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
+}
+
+.gomed-sponsors-img {
+    max-width: 100%;
+    height: auto;
 }
 
 @media (max-width: 768px) {
-    .gomed-section {
-        padding: 4rem 1rem;
+    .gomed-top {
+        flex-direction: column;
     }
-    .gomed-card {
+    .gomed-content {
+        padding: 2.5rem 1.5rem;
+    }
+    .gomed-btn {
         padding: 3rem 1.5rem;
-        border-radius: 24px;
-    }
-    .gomed-logo-img {
-        max-width: 260px;
-    }
-    .gomed-title {
-        font-size: 2rem;
-    }
-    .gomed-subtitle {
-        font-size: 1.1rem;
     }
 }
