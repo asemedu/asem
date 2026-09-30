@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages with React Submodule
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -22,36 +22,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository and submodules
+      - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          submodules: recursive
-
-      - name: Update submodule to latest main
-        run: git submodule update --remote --recursive
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'npm'
-          cache-dependency-path: goMed/package-lock.json
-
-      - name: Install React app dependencies
-        working-directory: goMed
-        run: npm ci --legacy-peer-deps
-
-      - name: Build React app
-        working-directory: goMed
-        run: npm run build
 
       - name: Assemble site for upload
         run: |
-          mkdir -p _site/aplicatie
-          # Copy static site files (HTML, CSS, JS, images) - exclude dot dirs and goMed submodule
-          rsync -a --exclude='.git' --exclude='goMed' --exclude='_site' --exclude='node_modules' . _site/
-          # Copy React build output into the /aplicatie subfolder
-          cp -r goMed/dist/* _site/aplicatie/
+         mkdir -p _site
+          # Copy static site files (HTML, CSS, JS, images) - exclude dot dirs
+          rsync -a --exclude='.git' --exclude='_site' --exclude='node_modules' . _site/
+
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
