@@ -39,7 +39,7 @@ def resolve(page, ref):
 # 1. Linkuri, imagini, ancore
 for page in pages + glob.glob("assets/css/*.css") + ["site.webmanifest"]:
     text = open(page, encoding="utf-8").read()
-    refs = re.findall(r'(?:src|href)="([^"]+)"', text) + re.findall(r'url\(["\']?([^"\')]+)', text)
+    refs = re.findall(r'(?:src|href|poster)="([^"]+)"', text) + re.findall(r'url\(["\']?([^"\')]+)', text)
     for srcset in re.findall(r'srcset="([^"]+)"', text):
         refs += [part.strip().split()[0] for part in srcset.split(",")]
     refs += re.findall(r'"src":\s*"([^"]+)"', text)

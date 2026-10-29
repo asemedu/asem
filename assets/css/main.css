@@ -53,6 +53,11 @@
 
 /* ---------- 2. Bază ---------- */
 
+/* Atributul hidden trebuie să câștige și în fața display: flex/grid din componente */
+[hidden] {
+    display: none !important;
+}
+
 *,
 *::before,
 *::after {
@@ -781,8 +786,27 @@ ul, ol {
 }
 
 .logo-wall__item img {
-    max-height: 64px;
+    max-height: 72px;
+    max-width: 100%;
     width: auto;
+    object-fit: contain;
+}
+
+/* Emblema UE: tile lat, ca să fie cel puțin la fel de vizibilă ca celelalte logo-uri */
+.logo-wall__item--eu img {
+    max-height: 88px;
+}
+
+.logo-group-title {
+    font-size: 1rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 2rem 0 1rem;
+}
+
+.logo-group-title:first-child {
+    margin-top: 0;
 }
 
 /* Locul unui logo care încă nu a fost primit: afișează numele */
@@ -1175,6 +1199,9 @@ ul, ol {
 }
 
 .gomed-feature__phone {
+    display: block;
+    width: 100%;
+    height: auto;
     max-width: 280px;
     margin: 0 auto;
     border-radius: 28px;
@@ -1345,6 +1372,34 @@ ul, ol {
     grid-column: span 2;
 }
 
-@media (max-width: 420px) {
-    .logo-wall__item--wide { grid-column: span 1; }
+@media (max-width: 520px) {
+    .logo-wall { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem; }
+    .logo-wall__item { min-height: 84px; padding: 0.75rem; }
+    .logo-wall__item img { max-height: 56px; }
+    .logo-wall__item--eu img { max-height: 64px; }
+}
+
+/* Video (pagini de proiect) */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 320px));
+    gap: 1.5rem;
+}
+
+.video {
+    margin: 0;
+}
+
+.video video {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    background: var(--text);
+    box-shadow: var(--shadow);
+}
+
+.video figcaption {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
 }
