@@ -1,0 +1,1350 @@
+/* =========================================================
+   ASEM – stiluri comune pentru tot site-ul
+   Ordine: 1. Font și variabile  2. Bază  3. Layout
+           4. Header/footer  5. Componente  6. Pagini  7. Utilitare
+   ========================================================= */
+
+/* ---------- 1. Font și variabile ---------- */
+
+/* Inter (SIL Open Font License), găzduit local: nu trimite date vizitatorilor către terți */
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url("../fonts/inter-latin-ext.woff2") format("woff2");
+    unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url("../fonts/inter-latin.woff2") format("woff2");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+    /* Paleta ASEM (docs: 02-structura-noua.md) */
+    --green-900: #2F6B1E;   /* titluri, butoane principale */
+    --green-600: #5A9E2C;   /* accente */
+    --green-400: #93C572;   /* verde deschis */
+    --green-200: #BCD6AC;   /* fundal carduri */
+    --green-50:  #F3F8EE;   /* fundal pal */
+    --text:      #1E2A1E;
+    --text-muted:#4D5B4B;
+    --bg:        #FFFFFF;
+    --bg-alt:    #F8F9FA;
+    --border:    #E3E8E0;
+    --amber-100: #FFF3D6;
+    --amber-800: #7A5200;
+    --danger:    #B42318;
+
+    --font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --radius: 20px;
+    --radius-lg: 24px;
+    --radius-sm: 10px;
+    --shadow: 0 10px 30px rgba(30, 42, 30, 0.08);
+    --shadow-hover: 0 16px 40px rgba(30, 42, 30, 0.14);
+    --container: 1200px;
+    --header-h: 72px;
+}
+
+/* ---------- 2. Bază ---------- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-h) + 1rem);
+}
+
+body {
+    margin: 0;
+    font-family: var(--font);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: var(--text);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+h1, h2, h3, h4 {
+    line-height: 1.2;
+    margin: 0 0 0.75rem;
+    color: var(--text);
+}
+
+h1 { font-size: clamp(2rem, 4.5vw, 3.25rem); font-weight: 800; letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.6rem, 3vw, 2.25rem); font-weight: 800; letter-spacing: -0.01em; }
+h3 { font-size: 1.25rem; font-weight: 700; }
+
+p {
+    margin: 0 0 1rem;
+}
+
+a {
+    color: var(--green-900);
+}
+
+a:hover {
+    color: var(--green-600);
+}
+
+:focus-visible {
+    outline: 3px solid var(--green-600);
+    outline-offset: 3px;
+}
+
+ul, ol {
+    padding-left: 1.25rem;
+}
+
+/* ---------- 3. Layout ---------- */
+
+.container {
+    width: 100%;
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 1.25rem;
+}
+
+.section {
+    padding: 4.5rem 0;
+}
+
+.section--alt {
+    background: var(--green-50);
+}
+
+.section--tight {
+    padding: 3rem 0;
+}
+
+.section-head {
+    max-width: 720px;
+    margin-bottom: 2.5rem;
+}
+
+.section-head--center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.section-head p {
+    color: var(--text-muted);
+    font-size: 1.125rem;
+}
+
+.overline {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--green-900);
+    margin-bottom: 0.75rem;
+}
+
+.prose {
+    max-width: 760px;
+}
+
+.prose h2 {
+    font-size: 1.6rem;
+    margin-top: 2.5rem;
+}
+
+.prose ul li {
+    margin-bottom: 0.4rem;
+}
+
+.grid {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.grid--2 { grid-template-columns: repeat(2, 1fr); }
+.grid--3 { grid-template-columns: repeat(3, 1fr); }
+.grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+.split {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.split img {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    width: 100%;
+}
+
+@media (max-width: 960px) {
+    .grid--3, .grid--4 { grid-template-columns: repeat(2, 1fr); }
+    .split { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+@media (max-width: 640px) {
+    .grid--2, .grid--3, .grid--4 { grid-template-columns: 1fr; }
+    .section { padding: 3.25rem 0; }
+}
+
+/* ---------- 4. Header și footer ---------- */
+
+.skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -100px;
+    background: var(--green-900);
+    color: #fff;
+    padding: 0.6rem 1rem;
+    border-radius: var(--radius-sm);
+    z-index: 200;
+}
+
+.skip-link:focus {
+    top: 0.75rem;
+    color: #fff;
+}
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: saturate(160%) blur(8px);
+    border-bottom: 1px solid var(--border);
+}
+
+.site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: var(--header-h);
+}
+
+.site-header__logo img {
+    height: 44px;
+    width: auto;
+}
+
+.site-nav ul {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.site-nav a {
+    display: block;
+    padding: 0.5rem 0.8rem;
+    border-radius: var(--radius-sm);
+    color: var(--text);
+    font-weight: 600;
+    font-size: 0.98rem;
+    text-decoration: none;
+}
+
+.site-nav a:hover {
+    background: var(--green-50);
+    color: var(--green-900);
+}
+
+.site-nav a[aria-current="page"] {
+    color: var(--green-900);
+    background: var(--green-50);
+}
+
+.site-nav .site-nav__cta {
+    background: var(--green-900);
+    color: #fff;
+    margin-left: 0.5rem;
+    padding: 0.55rem 1.1rem;
+    border-radius: 999px;
+}
+
+.site-nav .site-nav__cta:hover,
+.site-nav .site-nav__cta[aria-current="page"] {
+    background: var(--green-600);
+    color: #fff;
+}
+
+.site-nav .site-nav__lang {
+    font-size: 0.85rem;
+    border: 1px solid var(--border);
+    margin-left: 0.25rem;
+}
+
+.nav-toggle {
+    display: none;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: #fff;
+    cursor: pointer;
+    padding: 0;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    margin: 4px auto;
+    background: var(--text);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+@media (max-width: 900px) {
+    .nav-toggle { display: block; }
+
+    .site-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-bottom: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        padding: 0.75rem 1.25rem 1.25rem;
+    }
+
+    .site-nav.is-open { display: block; }
+
+    .site-nav ul {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .site-nav a { padding: 0.8rem 0.75rem; }
+
+    .site-nav .site-nav__cta,
+    .site-nav .site-nav__lang {
+        margin: 0.5rem 0 0;
+        text-align: center;
+    }
+}
+
+.site-footer {
+    background: var(--text);
+    color: #DDE6D8;
+    padding: 3.5rem 0 2rem;
+    font-size: 0.95rem;
+}
+
+.site-footer a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.site-footer a:hover {
+    text-decoration: underline;
+    color: #fff;
+}
+
+.site-footer__grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 2.5rem;
+}
+
+.site-footer__logo {
+    height: 64px;
+    width: auto;
+    margin-bottom: 1rem;
+}
+
+.site-footer h2 {
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--green-400);
+    margin-bottom: 0.75rem;
+}
+
+.site-footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.site-footer li {
+    margin-bottom: 0.4rem;
+}
+
+.site-footer__legal {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    font-size: 0.85rem;
+    color: #B9C6B3;
+}
+
+.social {
+    display: flex;
+    gap: 0.6rem;
+    margin-top: 0.5rem;
+}
+
+.social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.social a:hover {
+    background: var(--green-600);
+}
+
+.social svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+@media (max-width: 760px) {
+    .site-footer__grid { grid-template-columns: 1fr; gap: 2rem; }
+}
+
+/* ---------- 5. Componente ---------- */
+
+/* Butoane */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.5rem;
+    border-radius: 999px;
+    border: 2px solid transparent;
+    font: inherit;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 1.2;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.btn:hover { transform: translateY(-2px); }
+
+.btn--primary { background: var(--green-900); color: #fff; }
+.btn--primary:hover { background: var(--green-600); color: #fff; }
+
+.btn--secondary { background: transparent; color: var(--green-900); border-color: var(--green-900); }
+.btn--secondary:hover { background: var(--green-900); color: #fff; }
+
+.btn--light { background: #fff; color: var(--green-900); }
+.btn--light:hover { background: var(--green-50); color: var(--green-900); }
+
+.btn--ghost-light { background: transparent; color: #fff; border-color: #fff; }
+.btn--ghost-light:hover { background: #fff; color: var(--green-900); }
+
+.btn:disabled { opacity: 0.6; cursor: wait; transform: none; }
+
+.btn-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.link-arrow {
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.link-arrow::after {
+    content: " →";
+}
+
+/* Hero (Acasă) */
+.hero {
+    position: relative;
+    min-height: min(640px, 88vh);
+    display: flex;
+    align-items: center;
+    color: #fff;
+    overflow: hidden;
+}
+
+.hero__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 35%;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg, rgba(31, 72, 20, 0.92) 0%, rgba(47, 107, 30, 0.82) 45%, rgba(90, 158, 44, 0.45) 100%);
+    z-index: 1;
+}
+
+.hero__content {
+    position: relative;
+    z-index: 2;
+    max-width: 720px;
+    padding: 4rem 0;
+}
+
+.hero .overline { color: var(--green-200); }
+.hero h1 { color: #fff; }
+
+.hero__lead {
+    font-size: 1.2rem;
+    color: #EEF5EA;
+    max-width: 620px;
+}
+
+.hero__small-link {
+    display: inline-block;
+    margin-top: 1.25rem;
+    color: #fff;
+    font-weight: 600;
+}
+
+.hero__small-link:hover { color: var(--green-200); }
+
+/* Antet pagini interioare */
+.page-hero {
+    background: var(--green-50);
+    padding: 4rem 0 3rem;
+}
+
+.page-hero__lead {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 720px;
+    margin: 0;
+}
+
+/* Bandă de cifre */
+.stat-band {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 1rem;
+    background: var(--green-900);
+    color: #fff;
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+}
+
+.stat-band__item {
+    text-align: center;
+    padding: 0.5rem;
+}
+
+.stat-band__value {
+    display: block;
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.stat-band__label {
+    display: block;
+    font-size: 0.95rem;
+    color: #DDEBD4;
+    margin-top: 0.35rem;
+}
+
+.stat-band__note {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 0.75rem;
+    text-align: center;
+}
+
+@media (max-width: 760px) {
+    .stat-band { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: 1.5rem 1rem; }
+}
+
+/* Carduri program / generice */
+.card {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    box-shadow: var(--shadow);
+    height: 100%;
+}
+
+.card p:last-child { margin-bottom: 0; }
+
+.card-program {
+    border-top: 5px solid var(--green-400);
+}
+
+.card-program h3 { color: var(--green-900); }
+
+.card-program p { color: var(--text-muted); }
+
+/* Card proiect */
+.project-card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 100%;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
+}
+
+.project-card__media {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--green-50);
+}
+
+.project-card__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Coperte grafice (afișe, vizualuri cu text): afișate întregi */
+.project-card__media--contain img {
+    object-fit: contain;
+}
+
+.project-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.4rem;
+    flex: 1;
+}
+
+.project-card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.project-card h2,
+.project-card h3 { margin: 0.25rem 0 0; font-size: 1.25rem; }
+
+.project-card h2 a,
+.project-card h3 a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+.project-card:hover h2 a,
+.project-card:hover h3 a { color: var(--green-900); }
+
+/* Tot cardul e clicabil prin linkul din titlu */
+.project-card h2 a::after,
+.project-card h3 a::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+}
+
+.project-card { position: relative; }
+
+.project-card p {
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.project-card__stats {
+    margin-top: auto;
+    padding-top: 0.75rem;
+    font-weight: 700;
+    color: var(--green-900);
+    font-size: 0.95rem;
+}
+
+/* Etichete de stare */
+.badge {
+    display: inline-block;
+    padding: 0.2rem 0.65rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.badge--ongoing { background: var(--amber-100); color: var(--amber-800); }
+.badge--done    { background: var(--green-50); color: var(--green-900); border: 1px solid var(--green-200); }
+.badge--launched{ background: var(--green-900); color: #fff; }
+
+/* Filtre (Proiecte) */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.filters button {
+    font: inherit;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    border: 1px solid var(--green-200);
+    background: #fff;
+    color: var(--text);
+    cursor: pointer;
+}
+
+.filters button:hover { background: var(--green-50); }
+
+.filters button[aria-pressed="true"] {
+    background: var(--green-900);
+    border-color: var(--green-900);
+    color: #fff;
+}
+
+.filters-empty {
+    color: var(--text-muted);
+}
+
+/* Citate */
+.quote {
+    margin: 0;
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    box-shadow: var(--shadow);
+    border-left: 5px solid var(--green-400);
+}
+
+.quote p {
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+.quote footer {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Logo-uri parteneri */
+.logo-wall {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    gap: 1rem;
+}
+
+.logo-wall__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 96px;
+    padding: 1rem;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    text-align: center;
+}
+
+.logo-wall__item img {
+    max-height: 64px;
+    width: auto;
+}
+
+/* Locul unui logo care încă nu a fost primit: afișează numele */
+.logo-wall__item--placeholder {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    border-style: dashed;
+}
+
+.partners-text {
+    margin-top: 1.5rem;
+    color: var(--text-muted);
+}
+
+/* Bandă CTA */
+.cta-band {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    color: #fff;
+    padding: 3.5rem 2.5rem;
+}
+
+.cta-band__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cta-band::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(100deg, rgba(31, 72, 20, 0.94), rgba(47, 107, 30, 0.8));
+    z-index: 1;
+}
+
+.cta-band__content {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
+}
+
+.cta-band h2 { color: #fff; }
+.cta-band p { color: #EEF5EA; font-size: 1.1rem; }
+
+.cta-band--plain::before { display: none; }
+.cta-band--plain { background: var(--green-900); }
+
+@media (max-width: 640px) {
+    .cta-band { padding: 2.5rem 1.5rem; }
+}
+
+/* Pași numerotați */
+.steps {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: step;
+    display: grid;
+    gap: 1.25rem;
+}
+
+.steps li {
+    counter-increment: step;
+    position: relative;
+    padding-left: 3.75rem;
+}
+
+.steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2.6rem;
+    height: 2.6rem;
+    border-radius: 50%;
+    background: var(--green-900);
+    color: #fff;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.steps strong {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--text);
+}
+
+.steps p { color: var(--text-muted); margin: 0.25rem 0 0; }
+
+/* Liste cu bife */
+.check-list {
+    list-style: none;
+    padding: 0;
+}
+
+.check-list li {
+    position: relative;
+    padding-left: 1.9rem;
+    margin-bottom: 0.6rem;
+}
+
+.check-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.45em;
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 50%;
+    background: var(--green-400) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.5 2.5L12 5.5' stroke='%23fff' stroke-width='2' fill='none'/%3E%3C/svg%3E") center / 80% no-repeat;
+}
+
+/* Tabel */
+.table-wrap {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.table th,
+.table td {
+    padding: 0.9rem 1.1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+}
+
+.table th {
+    background: var(--green-50);
+    font-size: 0.9rem;
+}
+
+.table tr:last-child td { border-bottom: 0; }
+
+/* Galerie */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+}
+
+.gallery figure {
+    margin: 0;
+}
+
+.gallery img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+}
+
+.gallery--contain img {
+    object-fit: contain;
+    background: var(--bg-alt);
+}
+
+/* Notă / avertisment */
+.notice {
+    background: var(--amber-100);
+    color: var(--amber-800);
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.25rem;
+    font-size: 0.95rem;
+}
+
+.notice p:last-child { margin: 0; }
+
+/* Finanțare + emblema UE */
+.funding {
+    background: var(--bg-alt);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+}
+
+.funding__logos {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+.funding__eu {
+    height: 72px;
+    width: auto;
+}
+
+.funding__disclaimer {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Etichete proiect */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0 0;
+}
+
+.tags li {
+    background: #fff;
+    border: 1px solid var(--green-200);
+    border-radius: 999px;
+    padding: 0.25rem 0.8rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Antet pagină de proiect */
+.project-hero {
+    background: var(--green-50);
+    padding: 3.5rem 0;
+}
+
+.project-hero__grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+}
+
+.project-hero__media img {
+    width: 100%;
+    max-height: 460px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+}
+
+.breadcrumb {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.breadcrumb a { text-decoration: none; font-weight: 600; }
+
+@media (max-width: 960px) {
+    .project-hero__grid { grid-template-columns: 1fr; }
+}
+
+/* Navigare între proiecte */
+.project-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--border);
+    padding-top: 1.5rem;
+    margin-top: 1rem;
+}
+
+.project-nav a {
+    text-decoration: none;
+    font-weight: 700;
+    max-width: 48%;
+}
+
+.project-nav small {
+    display: block;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.project-nav__next { text-align: right; margin-left: auto; }
+
+@media (max-width: 640px) {
+    .project-nav a { max-width: 100%; }
+}
+
+/* Echipă */
+.member {
+    text-align: center;
+}
+
+.member img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1rem;
+    border: 4px solid var(--green-200);
+}
+
+.member__role {
+    color: var(--green-900);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.member .social {
+    justify-content: center;
+}
+
+.member .social a {
+    background: var(--green-50);
+    color: var(--green-900);
+}
+
+.member .social a:hover {
+    background: var(--green-900);
+    color: #fff;
+}
+
+/* Cronologie */
+.timeline {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-left: 3px solid var(--green-200);
+}
+
+.timeline li {
+    position: relative;
+    padding: 0 0 1.5rem 1.75rem;
+}
+
+.timeline li::before {
+    content: "";
+    position: absolute;
+    left: -9px;
+    top: 0.35rem;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--green-900);
+}
+
+.timeline strong {
+    color: var(--green-900);
+    font-size: 1.15rem;
+}
+
+/* Resurse (Biblioteca) */
+.resource {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 1.75rem;
+    align-items: start;
+}
+
+.resource img {
+    border-radius: var(--radius-sm);
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+}
+
+.resource__links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+}
+
+@media (max-width: 640px) {
+    .resource { grid-template-columns: 1fr; }
+    .resource img { max-width: 220px; }
+}
+
+/* goMed pe Acasă */
+.gomed-feature {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.gomed-feature__logo {
+    width: 220px;
+    margin-bottom: 1rem;
+    border-radius: var(--radius);
+}
+
+.gomed-feature__phone {
+    max-width: 280px;
+    margin: 0 auto;
+    border-radius: 28px;
+    box-shadow: var(--shadow-hover);
+}
+
+.gomed-feature__label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--green-900);
+}
+
+@media (max-width: 860px) {
+    .gomed-feature { grid-template-columns: 1fr; }
+}
+
+/* ---------- Formulare ---------- */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+@media (max-width: 860px) {
+    .contact-grid { grid-template-columns: 1fr; }
+}
+
+.form {
+    display: grid;
+    gap: 1rem;
+}
+
+.form__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+@media (max-width: 640px) {
+    .form__row { grid-template-columns: 1fr; }
+}
+
+.field label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.35rem;
+}
+
+.field input,
+.field select,
+.field textarea {
+    width: 100%;
+    font: inherit;
+    font-size: 1rem;
+    color: var(--text);
+    padding: 0.8rem 1rem;
+    border: 2px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: #fff;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.field select {
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%234D5B4B' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+}
+
+.field textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+    outline: none;
+    border-color: var(--green-600);
+    box-shadow: 0 0 0 3px rgba(90, 158, 44, 0.2);
+}
+
+.consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-size: 0.92rem;
+}
+
+.consent input {
+    margin-top: 0.3rem;
+    width: 1.05rem;
+    height: 1.05rem;
+    accent-color: var(--green-900);
+    flex-shrink: 0;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+}
+
+.contact-list li {
+    margin-bottom: 0.5rem;
+}
+
+.toast {
+    position: fixed;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    max-width: min(380px, calc(100vw - 2.5rem));
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius-sm);
+    color: #fff;
+    background: var(--green-900);
+    box-shadow: var(--shadow-hover);
+    z-index: 300;
+    font-weight: 600;
+}
+
+.toast--error { background: var(--danger); }
+
+/* ---------- 7. Utilitare ---------- */
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.text-muted { color: var(--text-muted); }
+.text-center { text-align: center; }
+.mt-2 { margin-top: 2rem; }
+
+/* Text care trebuie completat înainte de publicare (vizibil intenționat) */
+.todo {
+    background: #FFF3B0;
+    color: #6B4E00;
+    padding: 0 0.3em;
+    border-radius: 4px;
+    font-weight: 600;
+    font-style: normal;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Logo lat (bandă cu mai multe logo-uri) */
+.logo-wall__item--wide {
+    grid-column: span 2;
+}
+
+@media (max-width: 420px) {
+    .logo-wall__item--wide { grid-column: span 1; }
+}

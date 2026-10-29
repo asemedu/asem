@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -25,12 +26,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Assemble site for upload
-        run: |
-         mkdir -p _site
-          # Copy static site files (HTML, CSS, JS, images) - exclude dot dirs
-          rsync -a --exclude='.git' --exclude='_site' --exclude='node_modules' . _site/
+      - name: Check links and content rules
+        run: python3 scripts/verifica-site.py
 
+      - name: Assemble site for upload
+        # Only public files are published; templates, scripts and editor config stay in the repo.
+        run: |
+          mkdir -p _site
+          cp *.html _site/
+          cp -r proiecte assets _site/
+          cp favicon.ico robots.txt sitemap.xml site.webmanifest _site/
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

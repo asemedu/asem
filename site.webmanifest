@@ -1,0 +1,13 @@
+{
+    "name": "ASEM – Asociația pentru Susținerea Educației Medicale",
+    "short_name": "ASEM",
+    "lang": "ro",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#93c572",
+    "icons": [
+        { "src": "/assets/img/brand/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+        { "src": "/assets/img/brand/icon-512.png", "sizes": "512x512", "type": "image/png" }
+    ]
+}

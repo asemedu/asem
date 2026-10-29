@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# Editor
+.idea/
+*.swp
+
+# Dependencies / build output
+node_modules/
+_site/
+
+# Documentație internă: plan, audit, texte-sursă și poze originale.
+# Repo-ul e public, iar aceste fișiere nu trebuie să fie. Poze originale pot conține minori.
+docs/
+*ACORD-GDPR*
