@@ -25,6 +25,7 @@ ids = {p: set(re.findall(r'\bid="([^"]+)"', open(p, encoding="utf-8").read())) f
 
 def resolve(page, ref):
     path, _, frag = ref.partition("#")
+    path = path.partition("?")[0]  # ex. main.css?v=... (versiune pentru cache)
     if path.startswith("/"):
         target = path.lstrip("/")
     elif path:

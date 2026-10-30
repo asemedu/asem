@@ -1,9 +1,14 @@
 name: Deploy to GitHub Pages
 
+# main    -> site-ul oficial (asem.edu-med.ro)
+# testing -> previzualizare la asem.edu-med.ro/testing/, ascunsă de motoarele de căutare
+# Un repository are un singur site Pages, așa că fiecare deploy publică ambele ramuri.
+
 on:
   push:
     branches:
       - main
+      - testing
   workflow_dispatch:
 
 permissions:
@@ -23,19 +28,49 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout main
         uses: actions/checkout@v4
+        with:
+          ref: main
+          path: main
 
-      - name: Check links and content rules
+      - name: Checkout testing
+        uses: actions/checkout@v4
+        with:
+          ref: testing
+          path: testing
+
+      - name: Check links and content rules (main)
+        working-directory: main
+        run: python3 scripts/verifica-site.py
+
+      - name: Check links and content rules (testing)
+        id: check_testing
+        working-directory: testing
+        # O greșeală pe testing nu trebuie să blocheze publicarea site-ului oficial
+        continue-on-error: ${{ github.ref == 'refs/heads/main' }}
         run: python3 scripts/verifica-site.py
 
       - name: Assemble site for upload
         # Only public files are published; templates, scripts and editor config stay in the repo.
         run: |
-          mkdir -p _site
-          cp *.html _site/
-          cp -r proiecte assets _site/
-          cp favicon.ico robots.txt sitemap.xml site.webmanifest _site/
+          assemble() {
+            mkdir -p "$2"
+            cp "$1"/*.html "$2"/
+            cp -r "$1"/proiecte "$1"/assets "$2"/
+            cp "$1"/favicon.ico "$1"/sitemap.xml "$1"/site.webmanifest "$2"/
+          }
+          assemble main _site
+          cp main/robots.txt _site/
+          # Previzualizarea nu trebuie să apară în Google
+          sed -i 's|^Allow: /$|Allow: /\nDisallow: /testing/|' _site/robots.txt
+
+          if [ "${{ steps.check_testing.outcome }}" = "success" ]; then
+            assemble testing _site/testing
+            find _site/testing -name '*.html' -exec sed -i 's|<head>|<head>\n    <meta name="robots" content="noindex, nofollow">|' {} +
+          else
+            echo "::warning::Verificarea ramurii testing a eșuat; /testing/ nu se publică în acest deploy."
+          fi
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

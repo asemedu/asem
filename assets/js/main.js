@@ -78,7 +78,7 @@ const CONTACT_EMAIL = 'consiliu.director.asem@gmail.com';
 // Endpoint Formspree (sau Web3Forms) pentru toate formularele.
 // Creați formularul pe formspree.io și puneți aici adresa primită, ex: 'https://formspree.io/f/abcdwxyz'.
 // Cât timp rămâne 'REPLACE_ME', formularele deschid aplicația de email a vizitatorului.
-const CONTACT_ENDPOINT = 'REPLACE_ME';
+const CONTACT_ENDPOINT = 'https://formspree.io/f/mnppbvgq';
 
 function isEndpointConfigured() {
     return CONTACT_ENDPOINT.startsWith('https://');
