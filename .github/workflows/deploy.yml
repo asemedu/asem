@@ -42,31 +42,45 @@ jobs:
 
       - name: Check links and content rules (main)
         working-directory: main
-        run: python3 scripts/verifica-site.py
+        # Scriptul există doar pe ramurile care îl au; pe celelalte verificarea se sare
+        run: if [ -f scripts/verifica-site.py ]; then python3 scripts/verifica-site.py; else echo "Fără scripts/verifica-site.py, verificarea e sărită."; fi
 
       - name: Check links and content rules (testing)
         id: check_testing
         working-directory: testing
         # O greșeală pe testing nu trebuie să blocheze publicarea site-ului oficial
         continue-on-error: ${{ github.ref == 'refs/heads/main' }}
-        run: python3 scripts/verifica-site.py
+        # Scriptul există doar pe ramurile care îl au; pe celelalte verificarea se sare
+        run: if [ -f scripts/verifica-site.py ]; then python3 scripts/verifica-site.py; else echo "Fără scripts/verifica-site.py, verificarea e sărită."; fi
 
       - name: Assemble site for upload
         # Only public files are published; templates, scripts and editor config stay in the repo.
         run: |
+          # Structura nouă: doar fișierele publice. Structura veche (fără assets/): tot repository-ul, ca înainte.
           assemble() {
             mkdir -p "$2"
-            cp "$1"/*.html "$2"/
-            cp -r "$1"/proiecte "$1"/assets "$2"/
-            cp "$1"/favicon.ico "$1"/sitemap.xml "$1"/site.webmanifest "$2"/
+            if [ -d "$1/assets" ] && [ -f "$1/site.webmanifest" ]; then
+              cp "$1"/*.html "$2"/
+              cp -r "$1"/proiecte "$1"/assets "$2"/
+              cp "$1"/favicon.ico "$1"/sitemap.xml "$1"/site.webmanifest "$2"/
+              [ -f "$1/robots.txt" ] && cp "$1/robots.txt" "$2"/
+            else
+              rsync -a --exclude='.git' --exclude='_site' --exclude='node_modules' "$1"/ "$2"/
+            fi
           }
           assemble main _site
-          cp main/robots.txt _site/
+
           # Previzualizarea nu trebuie să apară în Google
-          sed -i 's|^Allow: /$|Allow: /\nDisallow: /testing/|' _site/robots.txt
+          if [ -f _site/robots.txt ]; then
+            sed -i 's|^Allow: /$|Allow: /\nDisallow: /testing/|' _site/robots.txt
+            grep -q '^Disallow: /testing/' _site/robots.txt || printf '\nUser-agent: *\nDisallow: /testing/\n' >> _site/robots.txt
+          else
+            printf 'User-agent: *\nDisallow: /testing/\n' > _site/robots.txt
+          fi
 
           if [ "${{ steps.check_testing.outcome }}" = "success" ]; then
             assemble testing _site/testing
+            rm -f _site/testing/robots.txt
             find _site/testing -name '*.html' -exec sed -i 's|<head>|<head>\n    <meta name="robots" content="noindex, nofollow">|' {} +
           else
             echo "::warning::Verificarea ramurii testing a eșuat; /testing/ nu se publică în acest deploy."
