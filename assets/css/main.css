@@ -565,6 +565,13 @@ ul, ol {
     padding: 2rem;
 }
 
+/* Șase cifre: două rânduri a câte trei */
+.stat-band--3 { grid-template-columns: repeat(3, 1fr); }
+
+@media (max-width: 640px) {
+    .stat-band--3 { grid-template-columns: repeat(2, 1fr); }
+}
+
 .stat-band__item {
     text-align: center;
     padding: 0.5rem;
