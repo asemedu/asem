@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://asem.edu-med.ro/sitemap.xml

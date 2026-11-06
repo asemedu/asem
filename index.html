@@ -3,266 +3,392 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASEM</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>ASEM – Educație pentru sănătate în școli</title>
+    <meta name="description" content="ASEM (EduMed) organizează activități de prim ajutor și educație pentru sănătate în școlile din România, alături de studenți voluntari la medicină.">
+    <link rel="canonical" href="https://asem.edu-med.ro/">
+    <meta name="theme-color" content="#2F6B1E">
+    <link rel="alternate" hreflang="ro" href="https://asem.edu-med.ro/">
+    <link rel="alternate" hreflang="en" href="https://asem.edu-med.ro/en.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ASEM">
+    <meta property="og:locale" content="ro_RO">
+    <meta property="og:title" content="ASEM – Educație pentru sănătate în școli">
+    <meta property="og:description" content="ASEM (EduMed) organizează activități de prim ajutor și educație pentru sănătate în școlile din România, alături de studenți voluntari la medicină.">
+    <meta property="og:url" content="https://asem.edu-med.ro/">
+    <meta property="og:image" content="https://asem.edu-med.ro/assets/img/og/asem.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="icon" href="favicon.ico" sizes="32x32">
+    <link rel="icon" href="assets/img/brand/favicon-32.png" type="image/png">
+    <link rel="apple-touch-icon" href="assets/img/brand/apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="assets/css/main.css?v=202610311240">
+    <script src="assets/js/main.js?v=202610301647" defer></script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "NGO",
+        "name": "Asociația pentru Susținerea Educației Medicale",
+        "alternateName": [
+            "ASEM",
+            "EduMed"
+        ],
+        "url": "https://asem.edu-med.ro/",
+        "logo": "https://asem.edu-med.ro/assets/img/brand/icon-512.png",
+        "image": "https://asem.edu-med.ro/assets/img/og/asem.jpg",
+        "email": "consiliu.director.asem@gmail.com",
+        "foundingDate": "2024",
+        "taxID": "50446388",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Iași",
+            "addressCountry": "RO"
+        },
+        "description": "ASEM (EduMed) aduce prim ajutor și educație pentru sănătate în școlile din România, prin studenți voluntari la medicină.",
+        "sameAs": [
+            "https://www.instagram.com/asem.edu.med/",
+            "https://www.facebook.com/profile.php?id=61562030592641",
+            "https://www.linkedin.com/company/104627488/"
+        ]
+    }
+    </script>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="hamburger-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#acasa" class="logo-link">
-                    <img src="Artboard 2 copy 3@2x.png" alt="Logo" class="nav-logo">
-                </a></li>
-                <li><a href="despre.html">Despre noi</a></li>
+    <a class="skip-link" href="#continut">Sari la conținut</a>
+
+    <header class="site-header">
+        <div class="container site-header__inner">
+            <a href="./" class="site-header__logo" aria-label="ASEM – pagina principală">
+                <img src="assets/img/brand/logo-nav.png" width="240" height="120" alt="ASEM">
+            </a>
+            <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Deschide meniul">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="site-nav" id="site-nav" aria-label="Meniu principal">
+                <ul>
+                <li><a href="despre.html">Despre</a></li>
                 <li><a href="proiecte.html">Proiecte</a></li>
-                <li><a href="biblioteca.html">Biblioteca Digitală</a></li>
-                <li><a href="https://forms.gle/XJRfR9JiSWgFJf6h6" target="_blank" rel="noopener noreferrer">Devino voluntar!</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+                <li><a href="proiecte/gomed.html">goMed</a></li>
+                <li><a href="biblioteca.html">Biblioteca</a></li>
+                <li><a href="implica-te.html">Implică-te</a></li>
+                <li><a href="parteneri.html" class="site-nav__cta">Devino partener</a></li>
+                <li><a href="en.html" class="site-nav__lang" lang="en" hreflang="en">EN</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main>
-        <section id="acasa" class="hero">
-            <img src="img_start_page.png" alt="Background" class="hero-bg-image">
-            <div class="hero-overlay"></div>
-            <div class="hero-logo-top">
-                <img src="logo_start.png" alt="ASEM Logo" class="logo-top">
-            </div>
-        </section>
-
-        <section id="gomed" style="padding: 5rem 2rem; background-color: #f1f8e9; display: flex; justify-content: center; align-items: center; font-family: system-ui, -apple-system, sans-serif;">
-            <div class="container" style="max-width: 1100px; width: 100%; display: flex; flex-direction: column; gap: 2rem;">
-                <!-- Top Row: GoMed Card + Button -->
-                <div style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 3rem; flex-wrap: wrap;">
-                    <!-- Left side: GoMed SVG -->
-                    <div style="flex: 1; display: flex; flex-direction: column; align-items: center; min-width: 300px;">
-                        <img src="goMed.svg" alt="goMed" style="max-width: 100%; height: auto; border-radius: 36px;">
-                    </div>
-
-                    <!-- Right side: Unified Clickable Card -->
-                    <a href="https://gomed-asem.edu-med.ro" target="_blank" rel="noopener noreferrer"
-                       style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background-color: #ffffff; text-decoration: none; border-radius: 36px; padding: 4rem 3rem; min-width: 300px; transition: transform 0.2s ease, background-color 0.2s ease;"
-                       onmouseover="this.style.transform='scale(1.02)'; this.style.backgroundColor='#fafdfa';"
-                       onmouseout="this.style.transform='scale(1)'; this.style.backgroundColor='#ffffff';">
-                        <p style="color: #4a6856; font-size: 1.2rem; line-height: 1.5; margin-bottom: 2rem; max-width: 400px; font-weight: 500;">
-                            <i>Realitate augmentată pentru învățarea<br>tehnicilor de bază în acordarea primului ajutor
-                            </i>
-                        </p>
-                        <div style="color: #1a4d34; font-size: 2rem; font-weight: 800;">
-                            Accesează<br>goMed
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Bottom Row: Sponsors -->
-                <div style="background-color: #ffffff; border-radius: 36px; padding: 3rem; display: flex; justify-content: center; align-items: center; margin-top: 2rem;">
-                    <img src="sponsori.svg" alt="Sponsori" style="max-width: 100%; height: auto;">
-                </div>
-            </div>
-        </section>
-
-        <section id="proiecte" class="section">
+    <main id="continut">
+        <section class="hero">
+            <img src="assets/img/hero/hero-1920.webp" srcset="assets/img/hero/hero-1280.webp 1280w, assets/img/hero/hero-1920.webp 1920w" sizes="100vw" width="1920" height="673" fetchpriority="high" alt="" class="hero__bg">
             <div class="container">
-                <h2>Proiecte</h2>
-                <div class="projects-carousel">
-                    <button class="carousel-btn prev-btn" onclick="moveCarousel(-1)">
-                        <span>‹</span>
-                    </button>
-                    <div class="projects-grid" id="projectsGrid">
-                        <!-- Newest first: EduMed pentru gimnaziu -->
-                        <div class="project-card">
-                            <div class="project-image">
-                                <img src="proiecte/edumed_gimnaziu.jpeg" alt="EduMed pentru gimnaziu">
-                            </div>
-                            <div class="project-content">
-                                <h3>EduMed pentru gimnaziu</h3>
-                                <a href="proiect5.html" class="read-more">Citește mai mult</a>
-                            </div>
-                        </div>
-
-                        <!-- Then EduMed - Primul Ajutor (Vaslui) -->
-                        <div class="project-card">
-                            <div class="project-image">
-                                    <img src="proiecte/pr4.jpeg" alt="EduMed – Primul Ajutor în Școlile din Vaslui">
-                                </div>
-                            <div class="project-content">
-                                <h3>EduMed – Primul Ajutor în Școlile din Vaslui</h3>
-                                <a href="proiect4.html" class="read-more">Citește mai mult</a>
-                            </div>
-                        </div>
-
-                        <!-- Followed by earlier projects -->
-                        <div class="project-card">
-                            <div class="project-image">
-                                <img src="proiecte/pr3.jpg" alt="Chirurg pentru o zi">
-                            </div>
-                            <div class="project-content">
-                                <h3>Chirurg pentru o zi</h3>
-                                <a href="proiect3.html" class="read-more">Citește mai mult</a>
-                            </div>
-                        </div>
-
-                        <div class="project-card">
-                            <div class="project-image">
-                                <img src="proiecte/pr2.jpg" alt="Meseria - viziunea viitorului meu">
-                            </div>
-                            <div class="project-content">
-                                <h3>Meseria - viziunea viitorului meu</h3>
-                                <a href="proiect2.html" class="read-more">Citește mai mult</a>
-                            </div>
-                        </div>
-
-                        <div class="project-card">
-                            <div class="project-image">
-                                <img src="proiecte/hackthon.jpg" alt="Hackathonul de Dezvoltare Organizațională">
-                            </div>
-                            <div class="project-content">
-                                <h3>Hackathonul de Dezvoltare Organizațională</h3>
-                                <a href="proiect1.html" class="read-more">Citește mai mult</a>
-                            </div>
-                        </div>
-
-                        <!-- Only the customized project cards are shown here -->
+                <div class="hero__content">
+                    <span class="overline">Asociația pentru Susținerea Educației Medicale</span>
+                    <h1>Educație pentru sănătate în școli</h1>
+                    <p class="hero__lead">Studenții voluntari la medicină, pregătiți de ASEM, desfășoară în școli din România ateliere practice de prim ajutor, igienă și relații sănătoase, cu explicații pe înțelesul copiilor și materiale care rămân în școală.</p>
+                    <div class="btn-row">
+                        <a href="parteneri.html" class="btn btn--light">Devino partener</a>
+                        <a href="proiecte.html" class="btn btn--ghost-light">Vezi proiectele</a>
                     </div>
-                    <button class="carousel-btn next-btn" onclick="moveCarousel(1)">
-                        <span>›</span>
-                    </button>
+                    <a href="implica-te.html" class="hero__small-link">Înscrie-te ca voluntar</a>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="section">
+        <section class="section section--tight" aria-labelledby="impact">
             <div class="container">
-                <h2>Contact</h2>
-                <div class="contact-content">
-                    <!-- Coloana stânga -->
-                    <div class="contact-left-column">
-                        <!-- Formular de contact -->
-                        <div class="contact-form-container">
-                            <h3>Trimite un mesaj</h3>
-                            <form class="contact-form" id="contactForm">
-                                <div class="form-group">
-                                    <input type="text" id="name" name="name" placeholder="Numele tău" required>
+                <h2 id="impact" class="visually-hidden">Impactul nostru</h2>
+                <div class="stat-band stat-band--3">
+                    <div class="stat-band__item"><span class="stat-band__value">6.000</span><span class="stat-band__label">beneficiari direcți</span></div>
+                    <div class="stat-band__item"><span class="stat-band__value">30.000</span><span class="stat-band__label">beneficiari indirecți</span></div>
+                    <div class="stat-band__item"><span class="stat-band__value">10</span><span class="stat-band__label">județe, printre care Iași, Vaslui, Prahova și Ilfov</span></div>
+                    <div class="stat-band__item"><span class="stat-band__value">11</span><span class="stat-band__label">apariții în presă, la radio și TV</span></div>
+                    <div class="stat-band__item"><span class="stat-band__value">7</span><span class="stat-band__label">granturi obținute în 2025–2026</span></div>
+                    <div class="stat-band__item"><span class="stat-band__value">40.000</span><span class="stat-band__label">persoane atinse online de proiectele ASEM</span></div>
+                </div>
+                <p class="stat-band__note">Cifre cumulate din proiectele ASEM. Detalii pe paginile fiecărui proiect.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Ce facem</h2>
+                    <p>Lucrăm cu copii și tineri de la grădiniță până la liceu, în școli, spitale și comunități mici, cu voluntari pregătiți, ateliere practice și materiale educaționale.</p>
+                </div>
+                <div class="grid grid--3">
+                    <div class="card card-program"><h3>Prim ajutor și resuscitare</h3><p>Liceenii exersează resuscitarea pe manechine și poziția laterală de siguranță și învață când și cum să apeleze 112. Activitățile includ și noțiuni teoretice despre hemoragii și arsuri, iar aplicația goMed le permite să exerseze și acasă.</p></div>
+                    <div class="card card-program"><h3>Educație pentru sănătate pentru cei mici</h3><p>Abordăm teme precum igiena, alimentația, funcționarea corpului uman și teama de medic. Activitățile se adresează elevilor de gimnaziu și preșcolarilor.</p></div>
+                    <div class="card card-program"><h3>Educație medicală incluzivă</h3><p>Organizăm ateliere adaptate elevilor cu cerințe educaționale speciale, folosind pictograme, mulaje, modele 3D și activități în grupe mici.</p></div>
+                    <div class="card card-program"><h3>Sănătate sexuală și reproductivă, relații sănătoase</h3><p>Discutăm cu tinerii de 11–19 ani despre sănătatea sexuală și reproductivă, consimțământ, diferența dintre relațiile sănătoase și cele toxice și prevenirea abuzului. Organizăm sesiuni și pentru părinți și profesori.</p></div>
+                    <div class="card card-program"><h3>Sprijin pentru copiii internați</h3><p>Prin ateliere de art-terapie, voluntarii petrec timp cu copiii internați în spital, care își pot exprima emoțiile prin desen și pictură pe durata tratamentului.</p></div>
+                    <div class="card card-program"><h3>Orientare profesională</h3><p>Liceenii din mediul rural descoperă cum arată drumul spre Medicină, iar elevii de clasa a VIII-a și părinții lor află ce opțiuni oferă învățământul profesional.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--alt" id="gomed">
+            <div class="container gomed-feature">
+                <div>
+                    <img src="assets/img/brand/gomed.svg" width="919" height="732" alt="goMed – Explorează și salvează" class="gomed-feature__logo" loading="lazy" decoding="async">
+                    <h2>goMed: exersarea primului ajutor cu telefonul</h2>
+                    <p>Aplicația folosește camera telefonului pentru a urmări poziția brațelor în timpul compresiilor toracice și pentru a măsura ritmul în timp real. Analiza se desfășoară local, în browser, fără înregistrarea imaginilor. Aplicația include module clinice, chestionare și sesiuni pentru întreaga clasă, fără să necesite instalare.</p>
+                    <p class="gomed-feature__label">Lansată la 4 octombrie 2026. Proiect finanțat prin Start ONG.</p>
+                    <div class="btn-row">
+                        <a href="https://gomed-asem.edu-med.ro" class="btn btn--primary" target="_blank" rel="noopener noreferrer">Încearcă goMed</a>
+                        <a href="proiecte/gomed.html" class="btn btn--secondary">Despre proiect</a>
+                    </div>
+                </div>
+                <div>
+                    <video class="gomed-feature__phone" controls preload="none" playsinline poster="assets/video/gomed/prezentare-poster.webp" width="540" height="960" aria-label="Video de prezentare goMed">
+                        <source src="assets/video/gomed/prezentare.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Proiecte recente</h2>
+                </div>
+                <div class="grid grid--3">
+                    <article class="project-card">
+                        <div class="project-card__media project-card__media--contain"><picture><source srcset="assets/img/proiecte/educatie-medicala-incluziva/01-paunescu.webp" type="image/webp"><img src="assets/img/proiecte/educatie-medicala-incluziva/01-paunescu.jpg" width="1080" height="1350" alt="Colaj din atelierele Educație Medicală Incluzivă la Școala Gimnazială Specială „Constantin Păunescu” Iași" loading="lazy" decoding="async"></picture></div>
+                        <div class="project-card__body">
+                            <div class="project-card__meta"><span class="badge badge--ongoing">În desfășurare</span><span>Corpul European de Solidaritate</span></div>
+                            <h3><a href="proiecte/educatie-medicala-incluziva.html">Educație Medicală Incluzivă</a></h3>
+                            <p>372 de elevi, mulți cu cerințe educaționale speciale, din 5 școli din județul Iași</p>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <div class="project-card__media"><picture><source srcset="assets/img/proiecte/gomed/coperta-lansare-rcp.webp" type="image/webp"><img src="assets/img/proiecte/gomed/coperta-lansare-rcp.jpg" width="1236" height="948" alt="Elevă exersând compresiile toracice pe manechin la lansarea goMed, lângă o voluntară ASEM" loading="lazy" decoding="async"></picture></div>
+                        <div class="project-card__body">
+                            <div class="project-card__meta"><span class="badge badge--launched">Lansat oct. 2026</span><span>Start ONG</span></div>
+                            <h3><a href="proiecte/gomed.html">goMed</a></h3>
+                            <p>Aplicație de prim ajutor cu realitate augmentată și analiză în timp real a resuscitării cardiopulmonare (RCP)</p>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <div class="project-card__media project-card__media--contain"><picture><source srcset="assets/img/proiecte/edumed-junior/01-vizual.webp" type="image/webp"><img src="assets/img/proiecte/edumed-junior/01-vizual.jpg" width="1080" height="1350" alt="Vizualul proiectului EduMed Junior" loading="lazy" decoding="async"></picture></div>
+                        <div class="project-card__body">
+                            <div class="project-card__meta"><span class="badge badge--ongoing">În desfășurare</span><span>Start ONG</span></div>
+                            <h3><a href="proiecte/edumed-junior.html">EduMed Junior</a></h3>
+                            <p>Activitățile „Spitalul de Jucării” și „Detectivii de Microbi” în grădinițele din Iași</p>
+                        </div>
+                    </article>
+                </div>
+                <p class="mt-2"><a href="proiecte.html" class="link-arrow">Vezi toate proiectele</a></p>
+            </div>
+        </section>
+
+        <section class="section section--alt">
+            <div class="container split">
+                <div>
+                    <h2>Cum lucrăm</h2>
+                    <ol class="steps">
+                        <li><strong>Pregătim voluntarii pentru activitățile din școli.</strong><p>Studenții la medicină sunt instruiți să explice informațiile pe înțelesul fiecărei vârste, inclusiv elevilor cu cerințe educaționale speciale.</p></li>
+                        <li><strong>Desfășurăm ateliere în școli, cu echipamentul necesar.</strong><p>Folosim manechine, truse, mulaje și jocuri, astfel încât elevii să exerseze practic ceea ce învață.</p></li>
+                        <li><strong>Punem la dispoziția școlilor materiale educaționale.</strong><p>Manechinele, ghidurile și resursele digitale gratuite rămân la dispoziția profesorilor, care pot continua activitățile.</p></li>
+                    </ol>
+                </div>
+                <div><picture><source srcset="assets/img/acasa/cum-lucram.webp" type="image/webp"><img src="assets/img/acasa/cum-lucram.jpg" width="1080" height="980" alt="Participantă exersând resuscitarea pe manechin, ghidată de o voluntară ASEM" loading="lazy" decoding="async"></picture></div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Ne-au susținut</h2>
+                </div>
+                <h3 class="logo-group-title">Finanțatori și sponsori</h3>
+                <div class="logo-wall">
+                    <span class="logo-wall__item logo-wall__item--wide logo-wall__item--eu"><img src="assets/img/parteneri/ue-finantat-de-uniunea-europeana.png" width="1200" height="269" alt="Finanțat de Uniunea Europeană" class="funding__eu" loading="lazy" decoding="async"></span>
+                    <span class="logo-wall__item"><img src="assets/img/parteneri/start-ong.png" width="800" height="616" alt="Start ONG" loading="lazy" decoding="async"></span>
+                    <span class="logo-wall__item"><img src="assets/img/parteneri/kaufland.png" width="1200" height="599" alt="Kaufland România" loading="lazy" decoding="async"></span>
+                    <span class="logo-wall__item"><img src="assets/img/parteneri/act-for-tomorrow.png" width="1200" height="517" alt="Act for Tomorrow" loading="lazy" decoding="async"></span>
+                    <span class="logo-wall__item"><img src="assets/img/parteneri/lidl.svg" width="200" height="80" alt="Lidl România" loading="lazy" decoding="async"></span>
+                    <span class="logo-wall__item"><img src="assets/img/parteneri/fondul-viitor-mai-bun.png" width="1200" height="610" alt="Fondul pentru un viitor mai bun în comunități" loading="lazy" decoding="async"></span>
+                    <span class="logo-wall__item"><img src="assets/img/parteneri/fundatia-comunitara-iasi.png" width="1049" height="724" alt="Fundația Comunitară Iași" loading="lazy" decoding="async"></span>
+                    <span class="logo-wall__item"><img src="assets/img/parteneri/fundatia-comunitara-bacau.png" width="1200" height="607" alt="Fundația Comunitară Bacău" loading="lazy" decoding="async"></span>
+                    <span class="logo-wall__item"><img src="assets/img/parteneri/ffcr.png" width="1200" height="314" alt="FFCR" loading="lazy" decoding="async"></span>
+                    <span class="logo-wall__item"><img src="assets/img/parteneri/pepco.svg" width="200" height="80" alt="PEPCO" loading="lazy" decoding="async"></span>
+                    <span class="logo-wall__item"><img src="assets/img/parteneri/pepcolandia.png" width="1200" height="306" alt="Pepcolandia" loading="lazy" decoding="async"></span>
+                    <span class="logo-wall__item"><img src="assets/img/parteneri/asociatia-pastel.png" width="1200" height="504" alt="Asociația pastel" loading="lazy" decoding="async"></span>
+                    <span class="logo-wall__item"><img src="assets/img/parteneri/inotex.png" width="743" height="324" alt="Inotex" loading="lazy" decoding="async"></span>
+                    <span class="logo-wall__item"><img src="assets/img/parteneri/frateria-artisan.svg" width="200" height="80" alt="Frateria Artisan" loading="lazy" decoding="async"></span>
+                    <span class="logo-wall__item"><img src="assets/img/parteneri/hufmed.png" width="387" height="353" alt="HUFMED" loading="lazy" decoding="async"></span>
+                    <span class="logo-wall__item"><img src="assets/img/parteneri/thinslices.png" width="747" height="305" alt="Thinslices" loading="lazy" decoding="async"></span>
+                    <span class="logo-wall__item"><img src="assets/img/parteneri/anatomika.png" width="1160" height="222" alt="Anatomika" loading="lazy" decoding="async"></span>
+                    <span class="logo-wall__item"><img src="assets/img/parteneri/shatter.png" width="816" height="232" alt="Shatter" loading="lazy" decoding="async"></span>
+                    <span class="logo-wall__item"><img src="assets/img/parteneri/umami.png" width="695" height="152" alt="UMAMI" loading="lazy" decoding="async"></span>
+                    <span class="logo-wall__item"><img src="assets/img/parteneri/dr-laura-asafte.png" width="278" height="132" alt="Dr. Laura Asafte – medic primar ORL" loading="lazy" decoding="async"></span>
+                </div>
+                <h3 class="logo-group-title">Parteneri</h3>
+                <div class="logo-wall">
+                    <span class="logo-wall__item"><img src="assets/img/parteneri/hands-across-romania.png" width="1200" height="482" alt="Hands Across Romania" loading="lazy" decoding="async"></span>
+                    <span class="logo-wall__item"><img src="assets/img/parteneri/fdsc.png" width="449" height="230" alt="FDSC" loading="lazy" decoding="async"></span>
+                    <span class="logo-wall__item"><img src="assets/img/parteneri/arc.png" width="1200" height="485" alt="ARC" loading="lazy" decoding="async"></span>
+                    <span class="logo-wall__item"><img src="assets/img/parteneri/sscr-iasi.png" width="318" height="392" alt="SSCR Iași" loading="lazy" decoding="async"></span>
+                    <span class="logo-wall__item"><img src="assets/img/parteneri/radio-romania-iasi.png" width="434" height="191" alt="Radio România Iași" loading="lazy" decoding="async"></span>
+                    <span class="logo-wall__item"><img src="assets/img/parteneri/isj-iasi.png" width="197" height="72" alt="ISJ Iași" loading="lazy" decoding="async"></span>
+                    <span class="logo-wall__item"><img src="assets/img/parteneri/fablab-iasi.png" width="607" height="229" alt="FabLab Iași" loading="lazy" decoding="async"></span>
+                    <span class="logo-wall__item"><img src="assets/img/parteneri/zborhub.png" width="225" height="225" alt="ZborHub" loading="lazy" decoding="async"></span>
+                    <span class="logo-wall__item"><img src="assets/img/parteneri/cn-costache-negruzzi.png" width="180" height="199" alt="C.N. „Costache Negruzzi” Iași" loading="lazy" decoding="async"></span>
+                    <span class="logo-wall__item"><img src="assets/img/parteneri/lt-bogdan-voda-halaucesti.png" width="188" height="237" alt="Liceul Teoretic „Bogdan Vodă” Hălăucești" loading="lazy" decoding="async"></span>
+                    <span class="logo-wall__item"><img src="assets/img/parteneri/lt-la-salle-pildesti.png" width="220" height="120" alt="Liceul Tehnologic „Sf. Ioan de La Salle” Pildești" loading="lazy" decoding="async"></span>
+                    <span class="logo-wall__item"><img src="assets/img/parteneri/lt-vasile-alecsandri-sabaoani.png" width="691" height="233" alt="Liceul Teoretic „Vasile Alecsandri” Săbăoani" loading="lazy" decoding="async"></span>
+                    <span class="logo-wall__item"><img src="assets/img/parteneri/lt-miron-costin.png" width="449" height="331" alt="Liceul Teoretic „Miron Costin”" loading="lazy" decoding="async"></span>
+                </div>
+                <p class="partners-text">Mulțumim școlilor și grădinițelor partenere pentru colaborare și voluntarilor noștri pentru implicarea în activități.</p>
+            </div>
+        </section>
+
+        <section class="section section--alt">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Ce spun despre noi</h2>
+                </div>
+                <div class="grid grid--3">
+                    <blockquote class="quote"><p>„Pentru elevii noștri a fost prima activitate practică de prim ajutor. Ne dorim să continuăm colaborarea și anul viitor.”</p><footer>— director, școală parteneră, 2026</footer></blockquote>
+                    <blockquote class="quote"><p>„Mi-a plăcut cel mai mult că am exersat efectiv, nu doar am ascultat teorie.”</p><footer>— elev, Vaslui, 2025</footer></blockquote>
+                    <blockquote class="quote"><p>„Ne ajutați mult pe noi, părinții. Copiii ascultă altfel sfaturile venite de la specialiști.”</p><footer>— părinte, 2026</footer></blockquote>
+                </div>
+                <div class="grid grid--2 mt-2">
+                    <blockquote class="quote"><p>„În ASEM am învățat să explic medicina pe înțelesul elevilor și să conduc o echipă. Am câștigat încredere, abilități practice și o comunitate de colegi pe care mă pot baza.”</p><footer>— voluntar ASEM, student la Medicină</footer></blockquote>
+                    <blockquote class="quote"><p>„O echipă bine organizată și implicată, care își atinge rezultatele asumate. ASEM aduce educația pentru sănătate exact acolo unde e nevoie de ea.”</p><footer>— finanțator, 2026</footer></blockquote>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="cta-band">
+                    <img src="assets/img/acasa/banda-cta-rcp.webp" width="1600" height="1088" alt="" class="cta-band__bg" loading="lazy" decoding="async">
+                    <div class="cta-band__content">
+                        <h2>Susțineți educația pentru sănătate în școli</h2>
+                        <p>Fiecare contribuție ajunge direct în clase: în manechine, truse de prim ajutor și materiale pe care elevii le folosesc la ateliere. Un manechin de resuscitare, de exemplu, costă aproximativ 1.000 de lei și rămâne în școală ani de zile.</p>
+                        <div class="btn-row">
+                            <a href="https://drive.google.com/file/d/1RC6XfkhGJ2kFe5jBB10DGuenQPFH5q3P/view?usp=sharing" class="btn btn--light" target="_blank" rel="noopener noreferrer">Descarcă mapa de sponsorizare</a>
+                            <a href="#contact" class="btn btn--ghost-light">Scrie-ne</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section--alt" id="contact">
+            <div class="container">
+                <div class="section-head">
+                    <h2>Contact</h2>
+                    <p>Ne puteți contacta pentru parteneriate, organizarea de ateliere în școala dumneavoastră sau oportunități de voluntariat.</p>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-side">
+                        <ul class="contact-list">
+                            <li><a href="mailto:consiliu.director.asem@gmail.com"><span class="contact-list__icon"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></span><span><span class="contact-list__label">Email</span><span class="contact-list__value">consiliu.director.asem@gmail.com</span></span></a></li>
+                            <li><a href="https://www.instagram.com/asem.edu.med/" target="_blank" rel="noopener noreferrer"><span class="contact-list__icon"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947C23.728 2.695 21.31.273 16.948.073 15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></span><span><span class="contact-list__label">Instagram</span><span class="contact-list__value">@asem.edu.med</span></span></a></li>
+                            <li><a href="https://www.linkedin.com/company/104627488/" target="_blank" rel="noopener noreferrer"><span class="contact-list__icon"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></span><span><span class="contact-list__label">LinkedIn</span><span class="contact-list__value">Asociația pentru Susținerea Educației Medicale</span></span></a></li>
+                            <li><a href="https://www.facebook.com/profile.php?id=61562030592641" target="_blank" rel="noopener noreferrer"><span class="contact-list__icon"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></span><span><span class="contact-list__label">Facebook</span><span class="contact-list__value">Asociația pentru Susținerea Educației Medicale</span></span></a></li>
+                        </ul>
+                        <div class="newsletter-band">
+                            <div>
+                                <h3>Newsletter</h3>
+                                <p>Primești, o dată la câteva luni, noutăți despre proiectele desfășurate și activitățile următoare.</p>
+                            </div>
+                            <form class="newsletter-band__form" data-form data-success="Mulțumim! Te-am înscris la newsletter.">
+                                <input type="hidden" name="formular" value="newsletter">
+                                <input type="hidden" name="_subject" value="Abonare newsletter ASEM">
+                                <div class="newsletter-band__row">
+                                    <label for="newsletter-email" class="visually-hidden">Adresa de email</label>
+                                    <input type="email" id="newsletter-email" name="email" autocomplete="email" placeholder="Adresa de email" required>
+                                    <button type="submit" class="btn btn--primary">Abonează-te</button>
                                 </div>
-                                <div class="form-group">
-                                    <input type="email" id="email" name="email" placeholder="Adresa de email" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" id="subject" name="subject" placeholder="Subiectul mesajului" required>
-                                </div>
-                                <div class="form-group">
-                                    <textarea id="message" name="message" placeholder="Mesajul tău" rows="5" required></textarea>
-                                </div>
-                                <button type="submit" class="form-btn">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" fill="currentColor"/>
-                                    </svg>
-                                    Trimite mesajul
-                                </button>
+                                <label class="consent" for="newsletter-acord">
+                                    <input type="checkbox" id="newsletter-acord" name="acord_confidentialitate" value="da" required>
+                                    <span>Am citit și sunt de acord cu <a href="confidentialitate.html">politica de confidențialitate</a>.</span>
+                                </label>
                             </form>
                         </div>
-
-                        <!-- Buton sponzorizare -->
-                        <div class="sponsorship-section">
-                            <a href="https://drive.google.com/file/d/1RC6XfkhGJ2kFe5jBB10DGuenQPFH5q3P/view?usp=sharing" target="_blank" class="sponsorship-btn">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M14,2H6A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2M18,20H6V4H13V9H18V20Z" fill="currentColor"/>
-                                </svg>
-                                <span>Mapa de Sponzorizare</span>
-                            </a>
-                        </div>
                     </div>
 
-                    <!-- Coloana dreaptă -->
-                    <div class="contact-right-column">
-                        <!-- Newsletter -->
-                        <div class="newsletter-container">
-                            <h3>Abonează-te la newsletter</h3>
-                            <p>Primește cele mai recente știri și actualizări direct în inbox-ul tău.</p>
-                            <form class="newsletter-form" id="newsletterForm">
-                                <div class="form-group">
-                                    <input type="email" id="newsletter-email" name="email" placeholder="Adresa ta de email" required>
+                    <div class="card">
+                        <h3>Trimite-ne un mesaj</h3>
+                        <form class="form" data-form data-success="Mesajul tău a fost trimis. Îți răspundem în curând.">
+                            <input type="hidden" name="formular" value="contact">
+                            <input type="hidden" name="_subject" value="Mesaj de pe site-ul ASEM">
+                            <div class="form__row">
+                                <div class="field">
+                                    <label for="contact-nume">Nume</label>
+                                    <input type="text" id="contact-nume" name="nume" autocomplete="name" required>
                                 </div>
-                                <button type="submit" class="form-btn newsletter-btn">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/>
-                                    </svg>
-                                    Abonează-te
-                                </button>
-                            </form>
-                        </div>
-
-                        <!-- Rețele sociale -->
-                        <div class="contact-social">
-                            <h3>Urmărește-ne</h3>
-                            <div class="contact-social-links">
-                                <a href="https://www.instagram.com/asem.edu.med/" target="_blank" class="contact-social-link">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947C23.728 2.695 21.31.273 16.948.073 15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" fill="currentColor"/>
-                                    </svg>
-                                    <span>Instagram</span>
-                                </a>
-                                <a href="https://www.facebook.com/profile.php?id=61562030592641" target="_blank" class="contact-social-link">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="currentColor"/>
-                                    </svg>
-                                    <span>Facebook</span>
-                                </a>
-                                <a href="https://www.linkedin.com/company/104627488/admin/dashboard/" target="_blank" class="contact-social-link">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="currentColor"/>
-                                    </svg>
-                                    <span>LinkedIn</span>
-                                </a>
+                                <div class="field">
+                                    <label for="contact-email">Email</label>
+                                    <input type="email" id="contact-email" name="email" autocomplete="email" required>
+                                </div>
                             </div>
-                        </div>
+                            <div class="field">
+                                <label for="contact-sunt">Sunt</label>
+                                <select id="contact-sunt" name="sunt" required>
+                                    <option value="" disabled selected>Alege…</option>
+                                    <option>Companie</option>
+                                    <option>Școală</option>
+                                    <option>Student</option>
+                                    <option>Altceva</option>
+                                </select>
+                            </div>
+                            <div class="field">
+                                <label for="contact-mesaj">Mesaj</label>
+                                <textarea id="contact-mesaj" name="mesaj" required></textarea>
+                            </div>
+                            <label class="consent" for="contact-acord">
+                                <input type="checkbox" id="contact-acord" name="acord_confidentialitate" value="da" required>
+                                <span>Am citit și sunt de acord cu <a href="confidentialitate.html">politica de confidențialitate</a>.</span>
+                            </label>
+                            <div><button type="submit" class="btn btn--primary">Trimite mesajul</button></div>
+                        </form>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
+    <footer class="site-footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="Artboard 12@2x.png" alt="ASEM Logo" class="footer-logo-img">
+            <div class="site-footer__grid">
+                <div>
+                    <img src="assets/img/brand/logo-footer.png" width="360" height="180" alt="ASEM" class="site-footer__logo" loading="lazy" decoding="async">
+                    <p>Asociația pentru Susținerea Educației Medicale (ASEM)<br>Educație pentru sănătate în școlile din România, predată de studenți la medicină.</p>
                 </div>
-                <div class="footer-text">
-                    <p>&copy; 2026 ASOCIAȚIA PENTRU SUSȚINEREA EDUCAȚIEI MEDICALE. Toate drepturile rezervate.</p>
+                <div>
+                    <h2>Navigare</h2>
+                    <ul>
+                        <li><a href="despre.html">Despre</a></li>
+                        <li><a href="proiecte.html">Proiecte</a></li>
+                        <li><a href="parteneri.html">Parteneri</a></li>
+                        <li><a href="implica-te.html">Implică-te</a></li>
+                        <li><a href="biblioteca.html">Biblioteca</a></li>
+                        <li><a href="confidentialitate.html">Politica de confidențialitate</a></li>
+                        <li><a href="en.html">English</a></li>
+                    </ul>
                 </div>
-                <div class="social-links">
-                    <a href="https://www.instagram.com/asem.edu.med/" target="_blank" aria-label="Instagram" class="social-link">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947C23.728 2.695 21.31.273 16.948.073 15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" fill="currentColor"/>
-                        </svg>
-                    </a>
-                    <a href="https://www.facebook.com/profile.php?id=61562030592641" target="_blank" aria-label="Facebook" class="social-link">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="currentColor"/>
-                        </svg>
-                    </a>
-                    <a href="https://www.linkedin.com/company/104627488/admin/dashboard/" target="_blank" aria-label="LinkedIn" class="social-link">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="currentColor"/>
-                        </svg>
-                    </a>
-                    <a href="mailto:consiliul.director.asem@gmail.com" aria-label="Email" class="social-link">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" fill="currentColor"/>
-                        </svg>
-                    </a>
+                <div>
+                    <h2>Contact</h2>
+                    <p><a href="mailto:consiliu.director.asem@gmail.com">consiliu.director.asem@gmail.com</a></p>
+                    <div class="social">
+                        <a href="https://www.instagram.com/asem.edu.med/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947C23.728 2.695 21.31.273 16.948.073 15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+                        <a href="https://www.facebook.com/profile.php?id=61562030592641" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+                        <a href="https://www.linkedin.com/company/104627488/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+                        <a href="mailto:consiliu.director.asem@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+                    </div>
                 </div>
             </div>
+            <p class="site-footer__legal">© 2026 Asociația pentru Susținerea Educației Medicale (ASEM) · CIF 50446388 · Nr. Registrul asociațiilor și fundațiilor 89/A/26.07.2024 · Iași, România</p>
         </div>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
